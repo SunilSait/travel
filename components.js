@@ -21,7 +21,6 @@
         { label: 'About',    href: 'about.html' },
         { label: 'Packages', href: 'packages.html' },
         { label: 'Services', href: 'services.html' },
-        { label: 'Gallery',  href: 'gallery.html' },
         { label: 'Pricing',  href: 'pricing.html' },
         { label: 'Contact',  href: 'contact.html' },
     ];
@@ -155,7 +154,6 @@
                             <a href="index.html">Home</a>
                             <a href="home2.html">Home 2 — Premium</a>
                             <a href="services.html">Services</a>
-                            <a href="gallery.html">Gallery</a>
                             <a href="pricing.html">Pricing</a>
                             <a href="about.html">About Us</a>
                         </nav>

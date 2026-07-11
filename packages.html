@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
@@ -9,16 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Filter sidebar */
-        .packages-layout { display: grid; grid-template-columns: 260px 1fr; gap: 32px; align-items: start; }
-        .filter-sidebar { background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 24px; position: sticky; top: calc(var(--nav-height) + 20px); }
-        .filter-sidebar h4 { font-family: 'Poppins', sans-serif; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dark); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border-light); }
-        .filter-group { margin-bottom: 24px; }
-        .filter-check { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer; font-size: 0.85rem; color: var(--text-body); }
-        .filter-check input[type="checkbox"] { accent-color: var(--primary); width: 16px; height: 16px; }
-        .price-range { display: flex; align-items: center; gap: 8px; }
-        .price-range input[type="range"] { flex: 1; accent-color: var(--primary); }
-        @media (max-width: 1024px) { .packages-layout { grid-template-columns: 1fr; } .filter-sidebar { position: static; } }
+        .packages-layout { display: block; }
     </style>
 </head>
 <body>
@@ -68,45 +59,6 @@
         <div class="container">
             <div class="packages-layout">
 
-                <!-- Sidebar -->
-                <aside class="filter-sidebar animate-on-scroll" id="filter-sidebar" aria-label="Filter packages">
-                    <div class="filter-group">
-                        <h4>Destination</h4>
-                        <label class="filter-check"><input type="checkbox" checked> Kerala</label>
-                        <label class="filter-check"><input type="checkbox" checked> Rajasthan</label>
-                        <label class="filter-check"><input type="checkbox" checked> Goa</label>
-                        <label class="filter-check"><input type="checkbox" checked> Himachal Pradesh</label>
-                        <label class="filter-check"><input type="checkbox" checked> Varanasi</label>
-                        <label class="filter-check"><input type="checkbox" checked> Manali</label>
-                        <label class="filter-check"><input type="checkbox"> Coorg</label>
-                        <label class="filter-check"><input type="checkbox"> Andaman</label>
-                    </div>
-                    <div class="filter-group">
-                        <h4>Duration</h4>
-                        <label class="filter-check"><input type="checkbox" checked> Weekend (2–3 Days)</label>
-                        <label class="filter-check"><input type="checkbox" checked> Short (4–5 Days)</label>
-                        <label class="filter-check"><input type="checkbox" checked> Week (7 Days)</label>
-                        <label class="filter-check"><input type="checkbox"> Extended (10+ Days)</label>
-                    </div>
-                    <div class="filter-group">
-                        <h4>Budget per Person</h4>
-                        <label class="filter-check"><input type="checkbox"> Under ₹10,000</label>
-                        <label class="filter-check"><input type="checkbox"> ₹10K – ₹25K</label>
-                        <label class="filter-check"><input type="checkbox"> ₹25K – ₹50K</label>
-                        <label class="filter-check"><input type="checkbox"> Above ₹50K</label>
-                    </div>
-                    <div class="filter-group">
-                        <h4>Tour Type</h4>
-                        <label class="filter-check"><input type="checkbox"> Honeymoon</label>
-                        <label class="filter-check"><input type="checkbox"> Family</label>
-                        <label class="filter-check"><input type="checkbox"> Adventure</label>
-                        <label class="filter-check"><input type="checkbox"> Solo</label>
-                        <label class="filter-check"><input type="checkbox"> Group</label>
-                        <label class="filter-check"><input type="checkbox"> Pilgrimage</label>
-                    </div>
-                    <button class="btn btn-primary btn-full btn-shine" style="margin-top:8px;" id="apply-filter-btn">Apply Filters</button>
-                    <button class="btn btn-secondary btn-full" style="margin-top:10px;" id="reset-filter-btn">Reset</button>
-                </aside>
 
                 <!-- Packages Grid -->
                 <div>
@@ -124,7 +76,7 @@
                         <!-- 12 package cards -->
                         <div class="pkg-card-wrapper" data-duration="weekend" data-budget="budget">
                             <div class="pkg-card animate-on-scroll delay-1" id="pkg-1">
-                                <div class="pkg-card-img"><img src="assets/pkg_weekend.png" alt="Coorg coffee plantation weekend trip"><div class="pkg-card-badge">Weekend</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_coorg.jpg" alt="Coorg coffee plantation weekend trip"><div class="pkg-card-badge">Weekend</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Coorg Coffee Trail</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 3D/2N</span><span><i class="fas fa-map-marker-alt"></i> Karnataka</span></div>
@@ -136,7 +88,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="short" data-budget="mid">
                             <div class="pkg-card animate-on-scroll delay-2" id="pkg-2">
-                                <div class="pkg-card-img"><img src="assets/pkg_week.png" alt="Rajasthan palace heritage tour"><div class="pkg-card-badge" style="background:var(--primary);">Popular</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_rajasthan.jpg" alt="Rajasthan palace heritage tour"><div class="pkg-card-badge" style="background:var(--primary);">Popular</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Royal Rajasthan Heritage</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 5D/4N</span><span><i class="fas fa-map-marker-alt"></i> Rajasthan</span></div>
@@ -148,7 +100,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="week" data-budget="luxury">
                             <div class="pkg-card animate-on-scroll delay-3" id="pkg-3">
-                                <div class="pkg-card-img"><img src="assets/dest_manali.png" alt="Manali mountain adventure"><div class="pkg-card-badge" style="background:#6B46C1;">Adventure</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_manali.jpg" alt="Manali mountain adventure"><div class="pkg-card-badge" style="background:#6B46C1;">Adventure</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Manali Mountain Trek</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 7D/6N</span><span><i class="fas fa-map-marker-alt"></i> Himachal</span></div>
@@ -160,7 +112,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="week" data-budget="luxury" data-type="honeymoon">
                             <div class="pkg-card animate-on-scroll delay-1" id="pkg-4">
-                                <div class="pkg-card-img"><img src="assets/pkg_honeymoon.png" alt="Romantic Kerala honeymoon houseboat"><div class="pkg-card-badge" style="background:#D4A017;">Honeymoon</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_kerala_honeymoon.jpg" alt="Romantic Kerala honeymoon houseboat"><div class="pkg-card-badge" style="background:#D4A017;">Honeymoon</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Kerala Honeymoon Escape</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 7D/6N</span><span><i class="fas fa-map-marker-alt"></i> Kerala</span></div>
@@ -172,7 +124,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="short" data-budget="mid" data-type="adventure">
                             <div class="pkg-card animate-on-scroll delay-2" id="pkg-5">
-                                <div class="pkg-card-img"><img src="assets/pkg_adventure.png" alt="Rishikesh river rafting adventure"><div class="pkg-card-badge" style="background:#6B46C1;">Adventure</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_rishikesh.jpg" alt="Rishikesh river rafting adventure"><div class="pkg-card-badge" style="background:#6B46C1;">Adventure</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Rishikesh Adrenaline Rush</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 4D/3N</span><span><i class="fas fa-map-marker-alt"></i> Uttarakhand</span></div>
@@ -184,7 +136,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="week" data-budget="mid">
                             <div class="pkg-card animate-on-scroll delay-3" id="pkg-6">
-                                <div class="pkg-card-img"><img src="assets/dest_kerala.png" alt="Kerala backwaters boat tour"><div class="pkg-card-badge">Bestseller</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_kerala_backwaters.jpg" alt="Kerala backwaters boat tour"><div class="pkg-card-badge">Bestseller</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Kerala Backwaters Tour</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 6D/5N</span><span><i class="fas fa-map-marker-alt"></i> Kerala</span></div>
@@ -196,7 +148,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="short" data-budget="budget">
                             <div class="pkg-card animate-on-scroll delay-1" id="pkg-7">
-                                <div class="pkg-card-img"><img src="assets/dest_goa.png" alt="Goa beach vacation"><div class="pkg-card-badge">Beach</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_goa_party.jpg" alt="Goa beach vacation"><div class="pkg-card-badge">Beach</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Goa Beach Party Package</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 4D/3N</span><span><i class="fas fa-map-marker-alt"></i> Goa</span></div>
@@ -208,7 +160,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="short" data-budget="mid">
                             <div class="pkg-card animate-on-scroll delay-2" id="pkg-8">
-                                <div class="pkg-card-img"><img src="assets/dest_varanasi.png" alt="Varanasi spiritual journey on the Ganges"><div class="pkg-card-badge" style="background:#9B59B6;">Spiritual</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_varanasi.jpg" alt="Varanasi spiritual journey on the Ganges"><div class="pkg-card-badge" style="background:#9B59B6;">Spiritual</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Varanasi Spiritual Journey</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 4D/3N</span><span><i class="fas fa-map-marker-alt"></i> Uttar Pradesh</span></div>
@@ -220,7 +172,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="week" data-budget="luxury">
                             <div class="pkg-card animate-on-scroll delay-3" id="pkg-9">
-                                <div class="pkg-card-img"><img src="assets/dest_himachal.png" alt="Himachal Pradesh alpine tour"><div class="pkg-card-badge" style="background:#27AE60;">Nature</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_himachal.jpg" alt="Himachal Pradesh alpine tour"><div class="pkg-card-badge" style="background:#27AE60;">Nature</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Himachal Grand Escape</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 8D/7N</span><span><i class="fas fa-map-marker-alt"></i> Himachal Pradesh</span></div>
@@ -232,7 +184,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="weekend" data-budget="budget">
                             <div class="pkg-card animate-on-scroll delay-1" id="pkg-10">
-                                <div class="pkg-card-img"><img src="assets/gallery_northeast.png" alt="Meghalaya root bridge weekend trek"><div class="pkg-card-badge">Northeast</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_meghalaya.jpg" alt="Meghalaya root bridge weekend trek"><div class="pkg-card-badge">Northeast</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Meghalaya Root Bridge Trek</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 3D/2N</span><span><i class="fas fa-map-marker-alt"></i> Meghalaya</span></div>
@@ -244,7 +196,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="short" data-budget="mid">
                             <div class="pkg-card animate-on-scroll delay-2" id="pkg-11">
-                                <div class="pkg-card-img"><img src="assets/gallery_south.png" alt="South India temple cultural tour"><div class="pkg-card-badge" style="background:#E74C3C;">Heritage</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_south_temple.jpg" alt="South India temple cultural tour"><div class="pkg-card-badge" style="background:#E74C3C;">Heritage</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">South India Temple Tour</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 5D/4N</span><span><i class="fas fa-map-marker-alt"></i> Tamil Nadu</span></div>
@@ -256,7 +208,7 @@
 
                         <div class="pkg-card-wrapper" data-duration="week" data-budget="luxury" data-type="honeymoon">
                             <div class="pkg-card animate-on-scroll delay-3" id="pkg-12">
-                                <div class="pkg-card-img"><img src="assets/hero_home2.png" alt="Goa sunset luxury honeymoon"><div class="pkg-card-badge" style="background:var(--secondary);">Luxury</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-img"><img src="assets/pkg_goa_luxury.jpg" alt="Goa sunset luxury honeymoon"><div class="pkg-card-badge" style="background:var(--secondary);">Luxury</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
                                 <div class="pkg-card-body">
                                     <h3 class="pkg-card-title">Goa Luxury Getaway</h3>
                                     <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 6D/5N</span><span><i class="fas fa-map-marker-alt"></i> Goa</span></div>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@
         .service-card:hover .service-card-img img { transform: scale(1.07); }
         .service-card-icon {
             position: absolute;
-            bottom: -20px; left: 24px;
+            top: -24px; left: 24px;
             width: 48px; height: 48px;
             border-radius: var(--radius-md);
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -33,7 +33,7 @@
             box-shadow: var(--shadow-md);
             border: 3px solid var(--surface);
         }
-        .service-card-body { padding: 32px 24px 24px; flex: 1; display:flex; flex-direction:column; }
+        .service-card-body { padding: 32px 24px 24px; flex: 1; display:flex; flex-direction:column; position: relative; }
         .service-card-title { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--text-dark); margin-bottom:10px; }
         .service-card-desc { font-size:0.875rem; color:var(--text-muted); line-height:1.8; flex:1; margin-bottom:20px; }
         .service-card-features { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
@@ -76,10 +76,10 @@
                 <!-- Service 1: Custom Itinerary -->
                 <div class="service-card animate-on-scroll delay-1" id="svc-1">
                     <div class="service-card-img">
-                        <img src="assets/services_custom.png" alt="Travel consultant planning custom itinerary on tablet">
-                        <div class="service-card-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <img src="assets/svc_itinerary.jpg" alt="Travel consultant planning custom itinerary on tablet">
                     </div>
                     <div class="service-card-body">
+                        <div class="service-card-icon"><i class="fas fa-map-marked-alt"></i></div>
                         <h3 class="service-card-title">Custom Itinerary Planning</h3>
                         <p class="service-card-desc">Our travel experts design bespoke itineraries tailored to your interests, budget, and travel style. No two trips are the same — just like no two travelers are.</p>
                         <div class="service-card-features"><span>Personalized</span><span>24hr Response</span><span>Free Consultation</span></div>
@@ -90,10 +90,10 @@
                 <!-- Service 2: Hotel Bookings -->
                 <div class="service-card animate-on-scroll delay-2" id="svc-2">
                     <div class="service-card-img">
-                        <img src="assets/pkg_honeymoon.png" alt="Luxury Kerala houseboat hotel accommodation">
-                        <div class="service-card-icon"><i class="fas fa-hotel"></i></div>
+                        <img src="assets/svc_hotel.jpg" alt="Luxury Kerala houseboat hotel accommodation">
                     </div>
                     <div class="service-card-body">
+                        <div class="service-card-icon"><i class="fas fa-hotel"></i></div>
                         <h3 class="service-card-title">Hotel & Stay Bookings</h3>
                         <p class="service-card-desc">Access 10,000+ partner hotels, resorts, houseboats, and homestays across India — from budget guesthouses to 5-star luxury palaces.</p>
                         <div class="service-card-features"><span>10,000+ Partners</span><span>Best Rate</span><span>Instant Confirm</span></div>
@@ -104,10 +104,10 @@
                 <!-- Service 3: Transport -->
                 <div class="service-card animate-on-scroll delay-3" id="svc-3">
                     <div class="service-card-img">
-                        <img src="assets/hero_home.png" alt="Mountain highway transport in Himalayas">
-                        <div class="service-card-icon"><i class="fas fa-bus-alt"></i></div>
+                        <img src="assets/svc_transport.jpg" alt="Mountain highway transport in Himalayas">
                     </div>
                     <div class="service-card-body">
+                        <div class="service-card-icon"><i class="fas fa-bus-alt"></i></div>
                         <h3 class="service-card-title">Transport & Transfers</h3>
                         <p class="service-card-desc">Comfortable, air-conditioned vehicle hire for all your intra-city and intercity travel needs — from airport pickups to long mountain drives.</p>
                         <div class="service-card-features"><span>AC Vehicles</span><span>Trained Drivers</span><span>24/7 Support</span></div>
@@ -118,10 +118,10 @@
                 <!-- Service 4: Adventure -->
                 <div class="service-card animate-on-scroll delay-1" id="svc-4">
                     <div class="service-card-img">
-                        <img src="assets/pkg_adventure.png" alt="River rafting adventure in Rishikesh">
-                        <div class="service-card-icon" style="background:linear-gradient(135deg,#6B46C1,#9B59B6);"><i class="fas fa-hiking"></i></div>
+                        <img src="assets/svc_adventure.jpg" alt="River rafting adventure in Rishikesh">
                     </div>
                     <div class="service-card-body">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#6B46C1,#9B59B6);"><i class="fas fa-hiking"></i></div>
                         <h3 class="service-card-title">Adventure Activities</h3>
                         <p class="service-card-desc">Curated adventure experiences — river rafting, trekking, bungee jumping, paragliding, skiing — with certified operators and full safety equipment.</p>
                         <div class="service-card-features"><span>Certified Guides</span><span>Safety Gear</span><span>Insurance</span></div>
@@ -132,10 +132,10 @@
                 <!-- Service 5: Honeymoon -->
                 <div class="service-card animate-on-scroll delay-2" id="svc-5">
                     <div class="service-card-img">
-                        <img src="assets/hero_home2.png" alt="Romantic Goa beach sunset for honeymoon couples">
-                        <div class="service-card-icon" style="background:linear-gradient(135deg,#D4A017,#A87C0D);"><i class="fas fa-heart"></i></div>
+                        <img src="assets/svc_honeymoon.jpg" alt="Romantic Goa beach sunset for honeymoon couples">
                     </div>
                     <div class="service-card-body">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#D4A017,#A87C0D);"><i class="fas fa-heart"></i></div>
                         <h3 class="service-card-title">Honeymoon Packages</h3>
                         <p class="service-card-desc">Make your first trip as a couple magical. Romantic dinners, couple spa treatments, private beach access — every detail crafted with love.</p>
                         <div class="service-card-features"><span>Couple-Exclusive</span><span>Romantic Setups</span><span>Spa Included</span></div>
@@ -146,10 +146,10 @@
                 <!-- Service 6: Group Tours -->
                 <div class="service-card animate-on-scroll delay-3" id="svc-6">
                     <div class="service-card-img">
-                        <img src="assets/about_team.png" alt="Group of travelers on a WanderIndia tour">
-                        <div class="service-card-icon" style="background:linear-gradient(135deg,#27AE60,#1E8449);"><i class="fas fa-users"></i></div>
+                        <img src="assets/svc_group.jpg" alt="Group of travelers on a WanderIndia tour">
                     </div>
                     <div class="service-card-body">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#27AE60,#1E8449);"><i class="fas fa-users"></i></div>
                         <h3 class="service-card-title">Group & Corporate Tours</h3>
                         <p class="service-card-desc">Seamless group travel for families, friends, and corporate teams. We handle logistics, accommodation, and activities for groups of 10–500+.</p>
                         <div class="service-card-features"><span>10–500+ Guests</span><span>Group Discounts</span><span>Team Events</span></div>
@@ -160,10 +160,10 @@
                 <!-- Service 7: Pilgrimage -->
                 <div class="service-card animate-on-scroll delay-1" id="svc-7">
                     <div class="service-card-img">
-                        <img src="assets/dest_varanasi.png" alt="Varanasi Ganges spiritual pilgrimage tour">
-                        <div class="service-card-icon" style="background:linear-gradient(135deg,#9B59B6,#6C3483);"><i class="fas fa-om"></i></div>
+                        <img src="assets/svc_pilgrimage.jpg" alt="Varanasi Ganges spiritual pilgrimage tour">
                     </div>
                     <div class="service-card-body">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#9B59B6,#6C3483);"><i class="fas fa-om"></i></div>
                         <h3 class="service-card-title">Pilgrimage Tours</h3>
                         <p class="service-card-desc">Spiritually enriching journeys to Varanasi, Tirupati, Char Dham, Shirdi, and more. Respectful, thoughtful itineraries designed for devotees.</p>
                         <div class="service-card-features"><span>All Religions</span><span>VIP Darshan</span><span>Puja Arrangements</span></div>
@@ -174,10 +174,10 @@
                 <!-- Service 8: Photography -->
                 <div class="service-card animate-on-scroll delay-2" id="svc-8">
                     <div class="service-card-img">
-                        <img src="assets/gallery_south.png" alt="South India temple photography tour">
-                        <div class="service-card-icon" style="background:linear-gradient(135deg,#E74C3C,#C0392B);"><i class="fas fa-camera"></i></div>
+                        <img src="assets/svc_photography.jpg" alt="South India temple photography tour">
                     </div>
                     <div class="service-card-body">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#E74C3C,#C0392B);"><i class="fas fa-camera"></i></div>
                         <h3 class="service-card-title">Photography Tours</h3>
                         <p class="service-card-desc">Specialized tours for photography enthusiasts — golden hour temple shoots, wildlife photography, landscape expeditions with professional guidance.</p>
                         <div class="service-card-features"><span>Pro Photography</span><span>Golden Hour</span><span>Expert Guidance</span></div>
@@ -188,10 +188,10 @@
                 <!-- Service 9: Northeast -->
                 <div class="service-card animate-on-scroll delay-3" id="svc-9">
                     <div class="service-card-img">
-                        <img src="assets/gallery_northeast.png" alt="Meghalaya living root bridge in Northeast India">
-                        <div class="service-card-icon" style="background:linear-gradient(135deg,#27AE60,#16A085);"><i class="fas fa-leaf"></i></div>
+                        <img src="assets/svc_northeast.jpg" alt="Meghalaya living root bridge in Northeast India">
                     </div>
                     <div class="service-card-body">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#27AE60,#16A085);"><i class="fas fa-leaf"></i></div>
                         <h3 class="service-card-title">Northeast India Explorer</h3>
                         <p class="service-card-desc">Discover India's hidden gem — the Northeast. Meghalaya living root bridges, Assam tea gardens, Nagaland tribal culture. Raw, real, breathtaking.</p>
                         <div class="service-card-features"><span>Offbeat Routes</span><span>Tribal Culture</span><span>Wildlife</span></div>
