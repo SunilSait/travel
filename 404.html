@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page Not Found — WanderIndia. The destination you're looking for doesn't exist. Let's help you find your way back to India's finest travel experiences.">
+    <title>404 — Page Not Found | WanderIndia</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Ccircle cx='50' cy='50' r='44' stroke='%230F7A5A' stroke-width='3' fill='none'/%3E%3Cpath d='M50 22 C42 22 36 28 36 36 C36 46 50 62 50 62 C50 62 64 46 64 36 C64 28 58 22 50 22Z' fill='%23D4A017'/%3E%3Ccircle cx='50' cy='36' r='6' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @keyframes driftPlane {
+            0% { transform: translateX(-60px) translateY(0) rotate(-5deg); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateX(calc(100vw + 60px)) translateY(-40px) rotate(5deg); opacity: 0; }
+        }
+        .plane-fly {
+            position: fixed;
+            top: 30%;
+            left: 0;
+            font-size: 1.8rem;
+            color: rgba(255,255,255,0.25);
+            animation: driftPlane 12s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes shimmerGradient {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .error-num {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(7rem, 20vw, 12rem);
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #0F7A5A 0%, #1EC998 30%, #D4A017 60%, #E8BC40 80%, #0F7A5A 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmerGradient 5s linear infinite;
+        }
+    </style>
+</head>
+<body>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(145deg,#071410 0%,#0D1F3C 50%,#122018 100%);padding:40px 16px;">
+
+    <!-- Top controls -->
+    <div class="auth-top-icons">
+        <button class="icon-btn dark-toggle" title="Toggle Dark Mode" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <button class="icon-btn rtl-toggle" title="Toggle RTL" aria-label="Toggle RTL"><i class="fas fa-exchange-alt"></i></button>
+    </div>
+
+    <!-- Flying plane -->
+    <div class="plane-fly" aria-hidden="true"><i class="fas fa-plane"></i></div>
+
+    <!-- Background decorations -->
+    <div style="position:absolute;inset:0;pointer-events:none;">
+        <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(15,122,90,0.10) 0%,transparent 70%);top:-250px;right:-250px;"></div>
+        <div style="position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,0.08) 0%,transparent 70%);bottom:-200px;left:-200px;"></div>
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(15,122,90,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,122,90,0.04) 1px,transparent 1px);background-size:60px 60px;"></div>
+        <!-- Floating icons -->
+        <div style="position:absolute;top:12%;left:4%;opacity:0.08;font-size:3rem;color:#fff;animation:float 8s ease-in-out infinite;"><i class="fas fa-map-marker-alt"></i></div>
+        <div style="position:absolute;top:70%;right:5%;opacity:0.06;font-size:4rem;color:#fff;animation:float 11s ease-in-out infinite 2s;"><i class="fas fa-compass"></i></div>
+        <div style="position:absolute;top:40%;left:3%;opacity:0.05;font-size:2.5rem;color:#fff;animation:float 7s ease-in-out infinite 1s;"><i class="fas fa-globe-asia"></i></div>
+    </div>
+
+    <!-- Content -->
+    <div style="position:relative;z-index:1;text-align:center;max-width:640px;" id="error-content">
+
+        <!-- Logo -->
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:48px;group;" id="error-logo" aria-label="WanderIndia - Return Home">
+            <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+                <defs><linearGradient id="e404Grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0F7A5A"/><stop offset="100%" stop-color="#D4A017"/></linearGradient></defs>
+                <circle cx="50" cy="50" r="44" stroke="url(#e404Grad)" stroke-width="3" fill="none"/>
+                <ellipse cx="50" cy="50" rx="28" ry="44" stroke="url(#e404Grad)" stroke-width="1.5" fill="none" stroke-opacity="0.5"/>
+                <line x1="6" y1="50" x2="94" y2="50" stroke="url(#e404Grad)" stroke-width="1.5" stroke-opacity="0.4"/>
+                <path d="M50 22 C42 22 36 28 36 36 C36 46 50 62 50 62 C50 62 64 46 64 36 C64 28 58 22 50 22Z" fill="url(#e404Grad)" fill-opacity="0.85"/>
+                <circle cx="50" cy="36" r="6" fill="white" fill-opacity="0.9"/>
+            </svg>
+            <span style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:#fff;">Wander<span style="color:#D4A017;">India</span></span>
+        </a>
+
+        <!-- 404 Number -->
+        <div class="error-num" aria-hidden="true">404</div>
+
+        <!-- Status badge -->
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.3);border-radius:50px;padding:6px 18px;margin:16px 0 20px;">
+            <span style="width:6px;height:6px;border-radius:50%;background:var(--secondary);animation:pulse 2s infinite;display:inline-block;"></span>
+            <span style="font-size:0.72rem;color:rgba(255,255,255,0.7);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;">Destination Not Found</span>
+        </div>
+
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;margin-bottom:14px;">
+            This Trail <span style="color:#D4A017;">Leads Nowhere</span>
+        </h1>
+        <p style="color:rgba(255,255,255,0.6);font-size:1rem;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8;">
+            The page you're looking for has been moved, removed, or never existed. But don't worry — India has 200+ amazing destinations waiting for you!
+        </p>
+
+        <!-- CTAs -->
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;">
+            <a href="index.html" class="btn btn-primary btn-lg btn-shine" id="err-home-btn">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+            <a href="packages.html" class="btn btn-lg" style="border:1.5px solid rgba(212,160,23,0.4);color:#D4A017;background:rgba(212,160,23,0.08);" id="err-packages-btn">
+                <i class="fas fa-compass"></i> Browse Packages
+            </a>
+        </div>
+
+        <!-- Quick nav links -->
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;">
+            <a href="about.html" style="font-size:0.78rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;transition:color 0.3s;" onmouseover="this.style.color='#D4A017'" onmouseout="this.style.color='rgba(255,255,255,0.4)'" id="err-about">About</a>
+            <span style="color:rgba(255,255,255,0.2);">·</span>
+            <a href="services.html" style="font-size:0.78rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;transition:color 0.3s;" onmouseover="this.style.color='#D4A017'" onmouseout="this.style.color='rgba(255,255,255,0.4)'" id="err-services">Services</a>
+            <span style="color:rgba(255,255,255,0.2);">·</span>
+            <a href="gallery.html" style="font-size:0.78rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;transition:color 0.3s;" onmouseover="this.style.color='#D4A017'" onmouseout="this.style.color='rgba(255,255,255,0.4)'" id="err-gallery">Gallery</a>
+            <span style="color:rgba(255,255,255,0.2);">·</span>
+            <a href="contact.html" style="font-size:0.78rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;transition:color 0.3s;" onmouseover="this.style.color='#D4A017'" onmouseout="this.style.color='rgba(255,255,255,0.4)'" id="err-contact">Contact</a>
+        </div>
+    </div>
+</div>
+
+<style>
+@keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);} }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.85);} }
+</style>
+<script src="script.js"></script>
+</body>
+</html>

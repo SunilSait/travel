@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WanderIndia Tour Packages — Browse 500+ domestic tour packages across India. Filter by duration, budget, and destination. Kerala, Rajasthan, Goa, Himachal, Varanasi and more.">
+    <title>Tour Packages | WanderIndia — Browse 500+ India Tours</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Ccircle cx='50' cy='50' r='44' stroke='%230F7A5A' stroke-width='3' fill='none'/%3E%3Cpath d='M50 22 C42 22 36 28 36 36 C36 46 50 62 50 62 C50 62 64 46 64 36 C64 28 58 22 50 22Z' fill='%23D4A017'/%3E%3Ccircle cx='50' cy='36' r='6' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Filter sidebar */
+        .packages-layout { display: grid; grid-template-columns: 260px 1fr; gap: 32px; align-items: start; }
+        .filter-sidebar { background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 24px; position: sticky; top: calc(var(--nav-height) + 20px); }
+        .filter-sidebar h4 { font-family: 'Poppins', sans-serif; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dark); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border-light); }
+        .filter-group { margin-bottom: 24px; }
+        .filter-check { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer; font-size: 0.85rem; color: var(--text-body); }
+        .filter-check input[type="checkbox"] { accent-color: var(--primary); width: 16px; height: 16px; }
+        .price-range { display: flex; align-items: center; gap: 8px; }
+        .price-range input[type="range"] { flex: 1; accent-color: var(--primary); }
+        @media (max-width: 1024px) { .packages-layout { grid-template-columns: 1fr; } .filter-sidebar { position: static; } }
+    </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="page-content">
+
+    <!-- Banner -->
+    <div class="page-banner">
+        <img src="assets/dest_himachal.png" alt="Himachal Pradesh mountain landscape - WanderIndia tour packages">
+        <div class="page-banner-overlay"></div>
+        <div class="page-banner-content">
+            <h1>Tour Packages</h1>
+            <p style="color:rgba(255,255,255,0.82);margin-bottom:10px;">Discover 500+ handcrafted domestic tours</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                <span>Packages</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         FILTER TABS (Quick)
+    ============================= -->
+    <section class="section-sm" style="padding-top:40px;padding-bottom:24px;" id="filter-tabs-section">
+        <div class="container">
+            <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;" class="animate-on-scroll">
+                <span style="font-size:0.85rem;color:var(--text-muted);align-self:center;font-weight:500;">Filter by:</span>
+                <button class="pkg-filter-tab filter-tab active" data-filter="all" id="pf-all">All</button>
+                <button class="pkg-filter-tab filter-tab" data-filter="weekend" id="pf-weekend">🏕️ Weekend (2–3D)</button>
+                <button class="pkg-filter-tab filter-tab" data-filter="short" id="pf-short">🗺️ Short (4–5D)</button>
+                <button class="pkg-filter-tab filter-tab" data-filter="week" id="pf-week">🏔️ Week+ (7D+)</button>
+                <button class="pkg-filter-tab filter-tab" data-filter="budget" id="pf-budget">💚 Budget</button>
+                <button class="pkg-filter-tab filter-tab" data-filter="luxury" id="pf-luxury">✨ Luxury</button>
+                <button class="pkg-filter-tab filter-tab" data-filter="honeymoon" id="pf-honeymoon">💑 Honeymoon</button>
+                <button class="pkg-filter-tab filter-tab" data-filter="adventure" id="pf-adventure">🏄 Adventure</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         PACKAGES GRID
+    ============================= -->
+    <section class="section" style="padding-top:20px;" id="packages-main" aria-label="All tour packages">
+        <div class="container">
+            <div class="packages-layout">
+
+                <!-- Sidebar -->
+                <aside class="filter-sidebar animate-on-scroll" id="filter-sidebar" aria-label="Filter packages">
+                    <div class="filter-group">
+                        <h4>Destination</h4>
+                        <label class="filter-check"><input type="checkbox" checked> Kerala</label>
+                        <label class="filter-check"><input type="checkbox" checked> Rajasthan</label>
+                        <label class="filter-check"><input type="checkbox" checked> Goa</label>
+                        <label class="filter-check"><input type="checkbox" checked> Himachal Pradesh</label>
+                        <label class="filter-check"><input type="checkbox" checked> Varanasi</label>
+                        <label class="filter-check"><input type="checkbox" checked> Manali</label>
+                        <label class="filter-check"><input type="checkbox"> Coorg</label>
+                        <label class="filter-check"><input type="checkbox"> Andaman</label>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Duration</h4>
+                        <label class="filter-check"><input type="checkbox" checked> Weekend (2–3 Days)</label>
+                        <label class="filter-check"><input type="checkbox" checked> Short (4–5 Days)</label>
+                        <label class="filter-check"><input type="checkbox" checked> Week (7 Days)</label>
+                        <label class="filter-check"><input type="checkbox"> Extended (10+ Days)</label>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Budget per Person</h4>
+                        <label class="filter-check"><input type="checkbox"> Under ₹10,000</label>
+                        <label class="filter-check"><input type="checkbox"> ₹10K – ₹25K</label>
+                        <label class="filter-check"><input type="checkbox"> ₹25K – ₹50K</label>
+                        <label class="filter-check"><input type="checkbox"> Above ₹50K</label>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Tour Type</h4>
+                        <label class="filter-check"><input type="checkbox"> Honeymoon</label>
+                        <label class="filter-check"><input type="checkbox"> Family</label>
+                        <label class="filter-check"><input type="checkbox"> Adventure</label>
+                        <label class="filter-check"><input type="checkbox"> Solo</label>
+                        <label class="filter-check"><input type="checkbox"> Group</label>
+                        <label class="filter-check"><input type="checkbox"> Pilgrimage</label>
+                    </div>
+                    <button class="btn btn-primary btn-full btn-shine" style="margin-top:8px;" id="apply-filter-btn">Apply Filters</button>
+                    <button class="btn btn-secondary btn-full" style="margin-top:10px;" id="reset-filter-btn">Reset</button>
+                </aside>
+
+                <!-- Packages Grid -->
+                <div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;" class="animate-on-scroll">
+                        <p style="color:var(--text-muted);font-size:0.875rem;">Showing <strong style="color:var(--text-dark);">12 packages</strong> (sorted by popularity)</p>
+                        <select class="form-input" style="width:auto;padding:8px 16px;" id="sort-select">
+                            <option>Sort: Popularity</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Duration: Short First</option>
+                        </select>
+                    </div>
+
+                    <div class="grid-3" style="gap:24px;" id="all-packages-grid">
+                        <!-- 12 package cards -->
+                        <div class="pkg-card-wrapper" data-duration="weekend" data-budget="budget">
+                            <div class="pkg-card animate-on-scroll delay-1" id="pkg-1">
+                                <div class="pkg-card-img"><img src="assets/pkg_weekend.png" alt="Coorg coffee plantation weekend trip"><div class="pkg-card-badge">Weekend</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Coorg Coffee Trail</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 3D/2N</span><span><i class="fas fa-map-marker-alt"></i> Karnataka</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Hotel</span><span class="pkg-include-tag">Meals</span><span class="pkg-include-tag">Transport</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹8,500 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p1-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="short" data-budget="mid">
+                            <div class="pkg-card animate-on-scroll delay-2" id="pkg-2">
+                                <div class="pkg-card-img"><img src="assets/pkg_week.png" alt="Rajasthan palace heritage tour"><div class="pkg-card-badge" style="background:var(--primary);">Popular</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Royal Rajasthan Heritage</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 5D/4N</span><span><i class="fas fa-map-marker-alt"></i> Rajasthan</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Hotel</span><span class="pkg-include-tag">Meals</span><span class="pkg-include-tag">Guide</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹18,999 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p2-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="week" data-budget="luxury">
+                            <div class="pkg-card animate-on-scroll delay-3" id="pkg-3">
+                                <div class="pkg-card-img"><img src="assets/dest_manali.png" alt="Manali mountain adventure"><div class="pkg-card-badge" style="background:#6B46C1;">Adventure</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Manali Mountain Trek</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 7D/6N</span><span><i class="fas fa-map-marker-alt"></i> Himachal</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Resort</span><span class="pkg-include-tag">All Meals</span><span class="pkg-include-tag">Trekking</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹28,500 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p3-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="week" data-budget="luxury" data-type="honeymoon">
+                            <div class="pkg-card animate-on-scroll delay-1" id="pkg-4">
+                                <div class="pkg-card-img"><img src="assets/pkg_honeymoon.png" alt="Romantic Kerala honeymoon houseboat"><div class="pkg-card-badge" style="background:#D4A017;">Honeymoon</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Kerala Honeymoon Escape</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 7D/6N</span><span><i class="fas fa-map-marker-alt"></i> Kerala</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Houseboat</span><span class="pkg-include-tag">Spa</span><span class="pkg-include-tag">All Meals</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹45,000 <span>/ couple</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p4-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="short" data-budget="mid" data-type="adventure">
+                            <div class="pkg-card animate-on-scroll delay-2" id="pkg-5">
+                                <div class="pkg-card-img"><img src="assets/pkg_adventure.png" alt="Rishikesh river rafting adventure"><div class="pkg-card-badge" style="background:#6B46C1;">Adventure</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Rishikesh Adrenaline Rush</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 4D/3N</span><span><i class="fas fa-map-marker-alt"></i> Uttarakhand</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Camping</span><span class="pkg-include-tag">Rafting</span><span class="pkg-include-tag">Yoga</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹12,999 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p5-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="week" data-budget="mid">
+                            <div class="pkg-card animate-on-scroll delay-3" id="pkg-6">
+                                <div class="pkg-card-img"><img src="assets/dest_kerala.png" alt="Kerala backwaters boat tour"><div class="pkg-card-badge">Bestseller</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Kerala Backwaters Tour</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 6D/5N</span><span><i class="fas fa-map-marker-alt"></i> Kerala</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Houseboat</span><span class="pkg-include-tag">Meals</span><span class="pkg-include-tag">Guide</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹22,000 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p6-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="short" data-budget="budget">
+                            <div class="pkg-card animate-on-scroll delay-1" id="pkg-7">
+                                <div class="pkg-card-img"><img src="assets/dest_goa.png" alt="Goa beach vacation"><div class="pkg-card-badge">Beach</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Goa Beach Party Package</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 4D/3N</span><span><i class="fas fa-map-marker-alt"></i> Goa</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Hotel</span><span class="pkg-include-tag">Breakfast</span><span class="pkg-include-tag">Water Sports</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹11,500 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p7-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="short" data-budget="mid">
+                            <div class="pkg-card animate-on-scroll delay-2" id="pkg-8">
+                                <div class="pkg-card-img"><img src="assets/dest_varanasi.png" alt="Varanasi spiritual journey on the Ganges"><div class="pkg-card-badge" style="background:#9B59B6;">Spiritual</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Varanasi Spiritual Journey</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 4D/3N</span><span><i class="fas fa-map-marker-alt"></i> Uttar Pradesh</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Hotel</span><span class="pkg-include-tag">Meals</span><span class="pkg-include-tag">Boat Ride</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹14,000 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p8-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="week" data-budget="luxury">
+                            <div class="pkg-card animate-on-scroll delay-3" id="pkg-9">
+                                <div class="pkg-card-img"><img src="assets/dest_himachal.png" alt="Himachal Pradesh alpine tour"><div class="pkg-card-badge" style="background:#27AE60;">Nature</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Himachal Grand Escape</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 8D/7N</span><span><i class="fas fa-map-marker-alt"></i> Himachal Pradesh</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Luxury Camp</span><span class="pkg-include-tag">All Meals</span><span class="pkg-include-tag">Rafting</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹38,000 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p9-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="weekend" data-budget="budget">
+                            <div class="pkg-card animate-on-scroll delay-1" id="pkg-10">
+                                <div class="pkg-card-img"><img src="assets/gallery_northeast.png" alt="Meghalaya root bridge weekend trek"><div class="pkg-card-badge">Northeast</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Meghalaya Root Bridge Trek</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 3D/2N</span><span><i class="fas fa-map-marker-alt"></i> Meghalaya</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Homestay</span><span class="pkg-include-tag">Meals</span><span class="pkg-include-tag">Trek Guide</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹9,500 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p10-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="short" data-budget="mid">
+                            <div class="pkg-card animate-on-scroll delay-2" id="pkg-11">
+                                <div class="pkg-card-img"><img src="assets/gallery_south.png" alt="South India temple cultural tour"><div class="pkg-card-badge" style="background:#E74C3C;">Heritage</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">South India Temple Tour</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 5D/4N</span><span><i class="fas fa-map-marker-alt"></i> Tamil Nadu</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">Hotel</span><span class="pkg-include-tag">Meals</span><span class="pkg-include-tag">Tour Guide</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹16,500 <span>/ person</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p11-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pkg-card-wrapper" data-duration="week" data-budget="luxury" data-type="honeymoon">
+                            <div class="pkg-card animate-on-scroll delay-3" id="pkg-12">
+                                <div class="pkg-card-img"><img src="assets/hero_home2.png" alt="Goa sunset luxury honeymoon"><div class="pkg-card-badge" style="background:var(--secondary);">Luxury</div><div class="pkg-card-fav"><i class="far fa-heart"></i></div></div>
+                                <div class="pkg-card-body">
+                                    <h3 class="pkg-card-title">Goa Luxury Getaway</h3>
+                                    <div class="pkg-card-meta"><span><i class="fas fa-clock"></i> 6D/5N</span><span><i class="fas fa-map-marker-alt"></i> Goa</span></div>
+                                    <div class="pkg-card-includes"><span class="pkg-include-tag">5★ Resort</span><span class="pkg-include-tag">All Meals</span><span class="pkg-include-tag">Private Beach</span></div>
+                                    <div class="pkg-card-footer"><div class="pkg-price"><span class="pkg-price-label">From</span><span class="pkg-price-value">₹55,000 <span>/ couple</span></span></div><a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="p12-book">Book</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More -->
+                    <div style="text-align:center;margin-top:40px;" class="animate-on-scroll">
+                        <button class="btn btn-secondary btn-lg" id="load-more-btn">
+                            <i class="fas fa-plus"></i> Load More Packages
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm" id="pkg-cta">
+        <div class="container">
+            <div class="cta-strip animate-on-scroll">
+                <h2>Can't Find What You're Looking For?</h2>
+                <p>Tell us your dream trip and we'll build a custom itinerary just for you.</p>
+                <div class="cta-strip-actions">
+                    <a href="contact.html" class="btn btn-accent btn-lg btn-shine" id="pkg-custom-btn"><i class="fas fa-sliders-h"></i> Customize My Trip</a>
+                    <a href="tel:+919876543210" class="btn btn-ghost btn-lg" id="pkg-call-btn"><i class="fas fa-phone"></i> Call Us Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="components.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

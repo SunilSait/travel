@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Something exciting is coming to WanderIndia — New destinations, exclusive packages, and incredible adventures across India. Register your interest and be first to know.">
+    <title>Coming Soon | WanderIndia — New Adventures Incoming</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Ccircle cx='50' cy='50' r='44' stroke='%230F7A5A' stroke-width='3' fill='none'/%3E%3Cpath d='M50 22 C42 22 36 28 36 36 C36 46 50 62 50 62 C50 62 64 46 64 36 C64 28 58 22 50 22Z' fill='%23D4A017'/%3E%3Ccircle cx='50' cy='36' r='6' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @keyframes shimmerText {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes orbitPulse {
+            0%,100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.06); opacity: 0.75; }
+        }
+        @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);} }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.85);} }
+
+        .cd-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+        }
+        .cd-num {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            background: rgba(15,122,90,0.15);
+            border: 1px solid rgba(15,122,90,0.35);
+            position: relative;
+            overflow: hidden;
+        }
+        .cd-num::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212,160,23,0.6), transparent);
+        }
+        .cd-label { font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 8px; font-weight: 600; }
+        .cd-sep { font-size: 1.8rem; color: rgba(232,124,43,0.5); font-weight: 300; align-self: center; margin-bottom: 20px; }
+
+        @media (max-width: 480px) {
+            .cd-box { width: 56px; }
+            .cd-num { width: 56px; height: 56px; font-size: 1.4rem; border-radius: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(145deg,#071410 0%,#0C2818 40%,#1A0D30 80%,#071410 100%);padding:40px 16px;">
+
+    <!-- Top controls -->
+    <div class="auth-top-icons">
+        <button class="icon-btn dark-toggle" title="Toggle Dark Mode" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <button class="icon-btn rtl-toggle" title="Toggle RTL" aria-label="Toggle RTL"><i class="fas fa-exchange-alt"></i></button>
+    </div>
+
+    <!-- Background decorations -->
+    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+        <div style="position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(15,122,90,0.12) 0%,transparent 70%);top:-300px;right:-300px;animation:orbitPulse 10s ease-in-out infinite;"></div>
+        <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,124,43,0.10) 0%,transparent 70%);bottom:-250px;left:-250px;animation:orbitPulse 12s ease-in-out infinite 3s;"></div>
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(15,122,90,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,122,90,0.04) 1px,transparent 1px);background-size:60px 60px;"></div>
+        <!-- Floating travel icons -->
+        <div style="position:absolute;top:8%;left:4%;opacity:0.1;animation:float 8s ease-in-out infinite;"><i class="fas fa-mountain" style="font-size:3.5rem;color:#fff;"></i></div>
+        <div style="position:absolute;bottom:15%;right:5%;opacity:0.1;animation:float 10s ease-in-out infinite 2s;"><i class="fas fa-globe-asia" style="font-size:4rem;color:#fff;"></i></div>
+        <div style="position:absolute;top:50%;left:2%;opacity:0.07;animation:float 6s ease-in-out infinite 1s;"><i class="fas fa-plane" style="font-size:2.5rem;color:#fff;transform:rotate(-30deg);"></i></div>
+        <div style="position:absolute;top:25%;right:3%;opacity:0.08;animation:float 9s ease-in-out infinite 4s;"><i class="fas fa-map-marked-alt" style="font-size:3rem;color:#fff;"></i></div>
+    </div>
+
+    <!-- Content -->
+    <div style="position:relative;z-index:1;text-align:center;max-width:680px;width:100%;" id="cs-content">
+
+        <!-- Logo -->
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px;" id="cs-logo" aria-label="WanderIndia - Return Home">
+            <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+                <defs><linearGradient id="csGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0F7A5A"/><stop offset="100%" stop-color="#D4A017"/></linearGradient></defs>
+                <circle cx="50" cy="50" r="44" stroke="url(#csGrad)" stroke-width="3" fill="none"/>
+                <ellipse cx="50" cy="50" rx="28" ry="44" stroke="url(#csGrad)" stroke-width="1.5" fill="none" stroke-opacity="0.5"/>
+                <line x1="6" y1="50" x2="94" y2="50" stroke="url(#csGrad)" stroke-width="1.5" stroke-opacity="0.4"/>
+                <path d="M50 22 C42 22 36 28 36 36 C36 46 50 62 50 62 C50 62 64 46 64 36 C64 28 58 22 50 22Z" fill="url(#csGrad)" fill-opacity="0.85"/>
+                <circle cx="50" cy="36" r="6" fill="white" fill-opacity="0.9"/>
+            </svg>
+            <span style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:#fff;">Wander<span style="color:#D4A017;">India</span></span>
+        </a>
+
+        <!-- Status badge -->
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(15,122,90,0.12);border:1px solid rgba(15,122,90,0.35);border-radius:50px;padding:6px 18px;margin-bottom:24px;">
+            <span style="width:6px;height:6px;border-radius:50%;background:#0F7A5A;animation:pulse 2s infinite;display:inline-block;"></span>
+            <span style="font-size:0.72rem;color:rgba(255,255,255,0.7);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;">New Adventures Incoming</span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#D4A017;animation:pulse 2s infinite 1s;display:inline-block;"></span>
+        </div>
+
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.2rem);line-height:1.1;margin-bottom:18px;color:#fff;">
+            Something <span style="background:linear-gradient(135deg,#0F7A5A 0%,#1EC998 30%,#D4A017 60%,#E8BC40 80%,#0F7A5A 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmerText 5s linear infinite;">Incredible</span><br>Is Coming
+        </h1>
+
+        <p style="color:rgba(255,255,255,0.62);font-size:1.05rem;max-width:500px;margin:0 auto 36px;line-height:1.85;">
+            We're crafting a whole new collection of India tour packages — from hidden northeast gems to exclusive luxury Himalayan expeditions. Be first to discover them.
+        </p>
+
+        <!-- Countdown -->
+        <div style="display:flex;justify-content:center;align-items:center;gap:8px;margin-bottom:40px;flex-wrap:nowrap;" id="countdown-container">
+            <div class="cd-box"><div class="cd-num" id="cd-days">21</div><div class="cd-label">Days</div></div>
+            <div class="cd-sep">:</div>
+            <div class="cd-box"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Hours</div></div>
+            <div class="cd-sep">:</div>
+            <div class="cd-box"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Minutes</div></div>
+            <div class="cd-sep">:</div>
+            <div class="cd-box"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Seconds</div></div>
+        </div>
+
+        <!-- Email Signup -->
+        <div style="max-width:480px;margin:0 auto 32px;" id="cs-form-wrapper">
+            <form id="cs-form" onsubmit="submitCS(event)">
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                    <input type="email" id="cs-email" required placeholder="your@email.com"
+                        style="flex:1;padding:13px 18px;border-radius:50px;background:rgba(255,255,255,0.08);border:1px solid rgba(15,122,90,0.35);color:#fff;font-size:0.9rem;font-family:'Poppins',sans-serif;outline:none;transition:border-color 0.3s;min-width:180px;"
+                        onfocus="this.style.borderColor='rgba(212,160,23,0.6)'"
+                        onblur="this.style.borderColor='rgba(15,122,90,0.35)'"
+                        aria-label="Email address for launch notification">
+                    <button type="submit" class="btn btn-accent btn-shine" style="border-radius:50px;white-space:nowrap;" id="cs-notify-btn">
+                        <i class="fas fa-bell"></i> Notify Me
+                    </button>
+                </div>
+            </form>
+            <p id="cs-success" style="display:none;color:#D4A017;font-weight:600;margin-top:12px;font-size:0.9rem;">
+                <i class="fas fa-check-circle" style="color:#22C55E;"></i> You're on the list! We'll email you when we launch.
+            </p>
+            <p style="font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:10px;">No spam. Just one email when we go live.</p>
+        </div>
+
+        <!-- Social links -->
+        <div style="display:flex;justify-content:center;gap:12px;margin-bottom:32px;">
+            <a href="#" style="width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-size:0.9rem;transition:all 0.3s;" aria-label="Instagram" onmouseover="this.style.background='#E1306C';this.style.borderColor='#E1306C';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='rgba(255,255,255,0.5)'"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-size:0.9rem;transition:all 0.3s;" aria-label="Facebook" onmouseover="this.style.background='#1877F2';this.style.borderColor='#1877F2';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='rgba(255,255,255,0.5)'"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-size:0.9rem;transition:all 0.3s;" aria-label="YouTube" onmouseover="this.style.background='#FF0000';this.style.borderColor='#FF0000';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='rgba(255,255,255,0.5)'"><i class="fab fa-youtube"></i></a>
+            <a href="#" style="width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-size:0.9rem;transition:all 0.3s;" aria-label="Twitter" onmouseover="this.style.background='#1DA1F2';this.style.borderColor='#1DA1F2';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='rgba(255,255,255,0.5)'"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <a href="index.html" style="font-size:0.78rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;transition:color 0.3s;text-decoration:none;" onmouseover="this.style.color='#D4A017'" onmouseout="this.style.color='rgba(255,255,255,0.35)'" id="cs-back-link">
+            ← Return to Main Site
+        </a>
+    </div>
+</div>
+
+<script>
+function submitCS(e) {
+    e.preventDefault();
+    document.getElementById('cs-form').style.display = 'none';
+    document.getElementById('cs-success').style.display = 'block';
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>

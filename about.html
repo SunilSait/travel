@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About WanderIndia — India's most trusted domestic travel agency. Our story, mission, values, and the passionate team behind your perfect India journey.">
+    <title>About Us | WanderIndia — Explore India. Your Way.</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Ccircle cx='50' cy='50' r='44' stroke='%230F7A5A' stroke-width='3' fill='none'/%3E%3Cpath d='M50 22 C42 22 36 28 36 36 C36 46 50 62 50 62 C50 62 64 46 64 36 C64 28 58 22 50 22Z' fill='%23D4A017'/%3E%3Ccircle cx='50' cy='36' r='6' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .timeline { position: relative; padding-left: 40px; }
+        .timeline::before { content:''; position:absolute; left:16px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--primary),var(--secondary)); }
+        .timeline-item { position:relative; margin-bottom:40px; }
+        .timeline-dot { position:absolute; left:-32px; top:4px; width:20px; height:20px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--secondary)); border:3px solid var(--bg); box-shadow:0 0 0 2px var(--primary); flex-shrink:0; }
+        .timeline-year { font-size:0.78rem; font-weight:700; color:var(--secondary); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
+        .timeline-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--text-dark); margin-bottom:6px; }
+        .timeline-desc { font-size:0.875rem; color:var(--text-muted); line-height:1.75; }
+
+        .team-card { background:var(--surface); border:1px solid var(--border-light); border-radius:var(--radius-lg); overflow:hidden; text-align:center; transition:var(--transition); }
+        .team-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+        .team-card-avatar { height:200px; overflow:hidden; }
+        .team-card-avatar img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+        .team-card:hover .team-card-avatar img { transform:scale(1.05); }
+        .team-card-body { padding:20px 16px; }
+        .team-card-name { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--text-dark); margin-bottom:4px; }
+        .team-card-role { font-size:0.78rem; color:var(--primary); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; }
+        .team-card-social { display:flex; justify-content:center; gap:8px; }
+        .team-card-social a { width:30px; height:30px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:0.75rem; transition:var(--transition); }
+        .team-card-social a:hover { background:var(--primary); border-color:var(--primary); color:#fff; }
+
+        .value-card { display:flex; align-items:flex-start; gap:16px; padding:24px; background:var(--surface); border:1px solid var(--border-light); border-radius:var(--radius-lg); transition:var(--transition); }
+        .value-card:hover { border-color:var(--primary); transform:translateX(6px); box-shadow:var(--shadow-md); }
+        .value-icon { width:48px; height:48px; border-radius:var(--radius-md); background:linear-gradient(135deg,var(--primary-glow),var(--secondary-glow)); display:flex; align-items:center; justify-content:center; color:var(--primary); font-size:1.1rem; flex-shrink:0; }
+    </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="page-content">
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <img src="assets/about_team.png" alt="Taj Mahal at sunrise - India's iconic landmark">
+        <div class="page-banner-overlay"></div>
+        <div class="page-banner-content">
+            <h1>About WanderIndia</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                <span>About Us</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         OUR STORY
+    ============================= -->
+    <section class="section" id="our-story" aria-label="Our story">
+        <div class="container">
+            <div class="grid-2" style="gap:64px;align-items:center;">
+                <div class="animate-on-scroll fade-left">
+                    <img src="assets/about_story.png" alt="Illustrated India travel map showing destinations" style="border-radius:var(--radius-xl);box-shadow:var(--shadow-xl);width:100%;height:420px;object-fit:cover;">
+                </div>
+                <div class="animate-on-scroll fade-right">
+                    <div class="section-label"><span class="dot"></span> Our Story</div>
+                    <h2 class="section-title">Born From a Love of <span class="gradient-text">India</span></h2>
+                    <p style="color:var(--text-muted);line-height:1.85;margin-bottom:18px;">WanderIndia was founded in 2012 by a group of passionate travelers who believed that India's incredible diversity deserved to be explored, not just visited. What started as a small desk in a Bangalore apartment has grown into one of India's most trusted domestic travel agencies.</p>
+                    <p style="color:var(--text-muted);line-height:1.85;margin-bottom:28px;">Today, we're a team of 80+ travel enthusiasts, local experts, and logistics wizards who collectively have explored every corner of this beautiful country. Our mission is simple: help every traveler discover their own India story.</p>
+                    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+                        <div style="text-align:center;">
+                            <div class="stat-number" style="font-size:2rem;" data-count="50000" data-suffix="+">0+</div>
+                            <div style="font-size:0.78rem;color:var(--text-muted);">Happy Travelers</div>
+                        </div>
+                        <div style="text-align:center;">
+                            <div class="stat-number" style="font-size:2rem;" data-count="200" data-suffix="+">0+</div>
+                            <div style="font-size:0.78rem;color:var(--text-muted);">Destinations</div>
+                        </div>
+                        <div style="text-align:center;">
+                            <div class="stat-number" style="font-size:2rem;" data-count="80" data-suffix="+">0+</div>
+                            <div style="font-size:0.78rem;color:var(--text-muted);">Team Members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         MISSION & VISION
+    ============================= -->
+    <section class="section bg-alt" id="mission-vision" aria-label="Mission and vision">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> What Drives Us</div>
+                <h2 class="section-title">Our <span class="gradient-text">Mission & Vision</span></h2>
+            </div>
+            <div class="grid-2" style="gap:28px;" id="mission-grid">
+                <div style="background:linear-gradient(135deg,var(--primary-dark),var(--primary));border-radius:var(--radius-xl);padding:40px;color:#fff;" class="animate-on-scroll delay-1" id="mission-card">
+                    <div style="width:56px;height:56px;background:rgba(255,255,255,0.15);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;"><i class="fas fa-bullseye"></i></div>
+                    <h3 style="color:#fff;font-family:'Playfair Display',serif;margin-bottom:14px;">Our Mission</h3>
+                    <p style="color:rgba(255,255,255,0.82);line-height:1.85;">To make exploring India accessible, affordable, and unforgettable for every traveler — whether you seek adventure, culture, relaxation, or spiritual enrichment. We handle the details so you can focus on the experience.</p>
+                </div>
+                <div style="background:linear-gradient(135deg,var(--secondary-dark),var(--secondary));border-radius:var(--radius-xl);padding:40px;color:#fff;" class="animate-on-scroll delay-2" id="vision-card">
+                    <div style="width:56px;height:56px;background:rgba(255,255,255,0.15);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;"><i class="fas fa-eye"></i></div>
+                    <h3 style="color:#fff;font-family:'Playfair Display',serif;margin-bottom:14px;">Our Vision</h3>
+                    <p style="color:rgba(255,255,255,0.82);line-height:1.85;">To be India's most loved domestic travel brand — where every journey creates lifelong memories, supports local communities, and inspires travelers to explore more of the world's greatest country.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         OUR VALUES
+    ============================= -->
+    <section class="section" id="values-section" aria-label="Our values">
+        <div class="container">
+            <div class="grid-2" style="gap:56px;align-items:center;">
+                <div class="animate-on-scroll fade-left">
+                    <div class="section-label"><span class="dot"></span> What We Believe In</div>
+                    <h2 class="section-title">Values That <span class="gradient-text">Guide Us</span></h2>
+                    <p style="color:var(--text-muted);margin-bottom:32px;">Everything we do is rooted in these core principles that shape how we serve our travelers and communities.</p>
+                    <div style="display:flex;flex-direction:column;gap:16px;" id="values-list">
+                        <div class="value-card animate-on-scroll delay-1">
+                            <div class="value-icon"><i class="fas fa-heart"></i></div>
+                            <div><h4 style="font-size:0.95rem;margin-bottom:4px;">Traveler First</h4><p style="font-size:0.82rem;color:var(--text-muted);">Every decision is made with our travelers' best interests at heart.</p></div>
+                        </div>
+                        <div class="value-card animate-on-scroll delay-2">
+                            <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                            <div><h4 style="font-size:0.95rem;margin-bottom:4px;">Integrity & Transparency</h4><p style="font-size:0.82rem;color:var(--text-muted);">No hidden fees, no misleading promises — only honest, upfront communication.</p></div>
+                        </div>
+                        <div class="value-card animate-on-scroll delay-3">
+                            <div class="value-icon"><i class="fas fa-leaf"></i></div>
+                            <div><h4 style="font-size:0.95rem;margin-bottom:4px;">Sustainable Tourism</h4><p style="font-size:0.82rem;color:var(--text-muted);">We champion responsible travel that benefits local communities and protects nature.</p></div>
+                        </div>
+                        <div class="value-card animate-on-scroll delay-4">
+                            <div class="value-icon"><i class="fas fa-star"></i></div>
+                            <div><h4 style="font-size:0.95rem;margin-bottom:4px;">Excellence Always</h4><p style="font-size:0.82rem;color:var(--text-muted);">We never settle for average. Every package, every detail is crafted with care.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-on-scroll fade-right">
+                    <img src="assets/about_team.png" alt="WanderIndia team smiling in the office" style="border-radius:var(--radius-xl);box-shadow:var(--shadow-xl);width:100%;height:480px;object-fit:cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         MILESTONES TIMELINE
+    ============================= -->
+    <section class="section bg-alt" id="milestones" aria-label="Company milestones">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> Our Journey</div>
+                <h2 class="section-title">Key <span class="gradient-text">Milestones</span></h2>
+                <p class="section-desc">From a small startup to India's trusted travel partner — here's how we grew.</p>
+            </div>
+            <div class="grid-2" style="gap:48px;align-items:start;">
+                <div class="timeline animate-on-scroll delay-1" id="timeline-left">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2012</div>
+                        <div class="timeline-title">Founded in Bangalore</div>
+                        <p class="timeline-desc">Three travel enthusiasts start WanderIndia from a small office with just 5 Kerala packages.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2014</div>
+                        <div class="timeline-title">Expanded to 50 Destinations</div>
+                        <p class="timeline-desc">Rapid growth across South and North India. Team expands to 20 travel experts.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-title">First Major Award</div>
+                        <p class="timeline-desc">Recognized as "Best Emerging Domestic Travel Agency" by India Tourism Awards.</p>
+                    </div>
+                </div>
+                <div class="timeline animate-on-scroll delay-2" id="timeline-right">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-title">10,000 Travelers Milestone</div>
+                        <p class="timeline-desc">Celebrated our 10,000th happy traveler with a special Ladakh expedition.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-title">Digital Transformation</div>
+                        <p class="timeline-desc">Launched online booking platform and virtual trip consultation services during COVID.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">50,000 Travelers & Counting</div>
+                        <p class="timeline-desc">Now serving 50,000+ travelers annually with 200+ destinations and 500+ packages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         TEAM
+    ============================= -->
+    <section class="section" id="team-section" aria-label="Our team">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> Meet the Team</div>
+                <h2 class="section-title">The People Behind <span class="gradient-text">Your Journey</span></h2>
+                <p class="section-desc">Our diverse team of travel experts, local guides, and logistics professionals are passionate about India.</p>
+            </div>
+            <div class="grid-4" id="team-grid">
+                <div class="team-card animate-on-scroll delay-1" id="team-1">
+                    <div class="team-card-avatar">
+                        <img src="assets/about_team.png" alt="Rohan Mehta - Founder & CEO" style="object-position:top;">
+                    </div>
+                    <div class="team-card-body">
+                        <div class="team-card-name">Rohan Mehta</div>
+                        <div class="team-card-role">Founder & CEO</div>
+                        <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:12px;">12+ years exploring India. Loves trekking and street food adventures.</p>
+                        <div class="team-card-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card animate-on-scroll delay-2" id="team-2">
+                    <div class="team-card-avatar">
+                        <img src="assets/services_custom.png" alt="Ananya Nair - Head of Operations">
+                    </div>
+                    <div class="team-card-body">
+                        <div class="team-card-name">Ananya Nair</div>
+                        <div class="team-card-role">Head of Operations</div>
+                        <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:12px;">Kerala native. Expert in South India luxury travel and houseboat experiences.</p>
+                        <div class="team-card-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card animate-on-scroll delay-3" id="team-3">
+                    <div class="team-card-avatar">
+                        <img src="assets/about_team.png" alt="Vikram Singh - Travel Design Head" style="object-position:center 30%;">
+                    </div>
+                    <div class="team-card-body">
+                        <div class="team-card-name">Vikram Singh</div>
+                        <div class="team-card-role">Travel Design Head</div>
+                        <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:12px;">Rajasthan expert with 500+ royal heritage tours planned across North India.</p>
+                        <div class="team-card-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card animate-on-scroll delay-4" id="team-4">
+                    <div class="team-card-avatar">
+                        <img src="assets/services_custom.png" alt="Priya Verma - Customer Experience Lead">
+                    </div>
+                    <div class="team-card-body">
+                        <div class="team-card-name">Priya Verma</div>
+                        <div class="team-card-role">Customer Experience</div>
+                        <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:12px;">5 languages. Ensures every traveler feels supported from booking to return.</p>
+                        <div class="team-card-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm" id="about-cta" aria-label="Call to action">
+        <div class="container">
+            <div class="cta-strip animate-on-scroll">
+                <h2>Ready to Travel India With Us?</h2>
+                <p>Let our passionate team craft your perfect India itinerary. Your dream journey is just a conversation away.</p>
+                <div class="cta-strip-actions">
+                    <a href="packages.html" class="btn btn-accent btn-lg btn-shine" id="about-cta-btn"><i class="fas fa-compass"></i> View Packages</a>
+                    <a href="contact.html" class="btn btn-ghost btn-lg" id="about-contact-btn"><i class="fas fa-phone"></i> Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="components.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WanderIndia Pricing — Transparent tour package pricing. Budget, Explorer, and Luxury plans for every traveler. No hidden fees, best price guaranteed.">
+    <title>Pricing | WanderIndia — Transparent Tour Package Pricing</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Ccircle cx='50' cy='50' r='44' stroke='%230F7A5A' stroke-width='3' fill='none'/%3E%3Cpath d='M50 22 C42 22 36 28 36 36 C36 46 50 62 50 62 C50 62 64 46 64 36 C64 28 58 22 50 22Z' fill='%23D4A017'/%3E%3Ccircle cx='50' cy='36' r='6' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="page-content">
+
+    <!-- Banner -->
+    <div class="page-banner">
+        <img src="assets/hero_home2.png" alt="Goa luxury sunset - WanderIndia pricing page">
+        <div class="page-banner-overlay"></div>
+        <div class="page-banner-content">
+            <h1>Our Pricing</h1>
+            <p style="color:rgba(255,255,255,0.82);margin-bottom:10px;">Transparent, all-inclusive pricing with no hidden fees</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                <span>Pricing</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         PRICING CARDS
+    ============================= -->
+    <section class="section" id="pricing-main" aria-label="Pricing plans">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> Choose Your Plan</div>
+                <h2 class="section-title">Simple, <span class="gradient-text">Transparent Pricing</span></h2>
+                <p class="section-desc">Pick the plan that suits your travel style. All prices are per person per day. Customize further with our travel experts.</p>
+            </div>
+
+            <!-- Toggle: Per Day / Per Trip -->
+            <div style="display:flex;justify-content:center;margin-bottom:48px;" class="animate-on-scroll">
+                <div style="background:var(--surface-alt);border:1px solid var(--border-light);border-radius:var(--radius-full);padding:4px;display:flex;gap:4px;">
+                    <button class="btn btn-primary btn-sm" id="per-day-btn" onclick="setPricing('day')" style="border-radius:var(--radius-full);">Per Day</button>
+                    <button class="btn btn-sm" id="per-trip-btn" onclick="setPricing('trip')" style="border-radius:var(--radius-full);background:transparent;color:var(--text-muted);">Per Trip</button>
+                </div>
+            </div>
+
+            <div class="grid-3" id="pricing-grid" style="align-items:stretch;gap:28px;">
+
+                <!-- Budget Plan -->
+                <div class="pricing-card animate-on-scroll delay-1" id="price-budget">
+                    <div style="text-align:center;margin-bottom:8px;">
+                        <div style="width:52px;height:52px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(15,122,90,0.12),rgba(27,108,168,0.06));border:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--primary);font-size:1.2rem;"><i class="fas fa-seedling"></i></div>
+                    </div>
+                    <div class="pricing-name">Budget Escapes</div>
+                    <p class="pricing-desc">Perfect for backpackers and budget-conscious travelers who want to see India without breaking the bank.</p>
+                    <div class="pricing-price">
+                        <div class="amount" id="budget-amount">₹1,500</div>
+                        <div class="per" id="budget-per">per person / day</div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Budget hotels & guesthouses</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Daily breakfast included</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Shared AC transport</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Basic sightseeing</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Email support</div>
+                        <div class="pricing-feature no"><i class="fas fa-times-circle"></i> Private vehicle</div>
+                        <div class="pricing-feature no"><i class="fas fa-times-circle"></i> Expert local guide</div>
+                        <div class="pricing-feature no"><i class="fas fa-times-circle"></i> Luxury experiences</div>
+                    </div>
+                    <a href="contact.html" class="btn btn-secondary btn-full" id="budget-book-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Explorer Plan (Featured) -->
+                <div class="pricing-card featured animate-on-scroll delay-2" id="price-explorer" style="margin-top:-12px;">
+                    <div class="pricing-badge">⭐ Most Popular</div>
+                    <div style="text-align:center;margin-bottom:8px;margin-top:16px;">
+                        <div style="width:52px;height:52px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:#fff;font-size:1.2rem;box-shadow:var(--shadow-primary);"><i class="fas fa-compass"></i></div>
+                    </div>
+                    <div class="pricing-name" style="color:var(--primary);">Explorer</div>
+                    <p class="pricing-desc">The perfect balance of comfort and value. Our most popular plan for families and couples.</p>
+                    <div class="pricing-price">
+                        <div class="amount" id="explorer-amount">₹3,500</div>
+                        <div class="per" id="explorer-per">per person / day</div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> 3–4★ hotels & resorts</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Breakfast + Dinner</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Private AC vehicle</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Expert local guide</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Priority 24/7 support</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Entry tickets included</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Adventure activity (1)</div>
+                        <div class="pricing-feature no"><i class="fas fa-times-circle"></i> Luxury spa & wellness</div>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary btn-full btn-shine" id="explorer-book-btn">Choose Explorer <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Luxury Plan -->
+                <div class="pricing-card animate-on-scroll delay-3" id="price-luxury">
+                    <div style="text-align:center;margin-bottom:8px;">
+                        <div style="width:52px;height:52px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(212,160,23,0.15),rgba(232,124,43,0.06));border:1px solid rgba(212,160,23,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--secondary);font-size:1.2rem;"><i class="fas fa-gem"></i></div>
+                    </div>
+                    <div class="pricing-name">Luxury Journeys</div>
+                    <p class="pricing-desc">For those who seek the very best. Exclusive access, palace hotels, and curated experiences that money can buy.</p>
+                    <div class="pricing-price">
+                        <div class="amount" id="luxury-amount" style="color:var(--secondary);">₹8,000</div>
+                        <div class="per" id="luxury-per">per person / day</div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> 5★ palaces & luxury resorts</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> All meals (curated cuisine)</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Private luxury vehicle</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Senior travel concierge</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> 24/7 dedicated support</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> All entry tickets & VIP access</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Unlimited adventure activities</div>
+                        <div class="pricing-feature"><i class="fas fa-check-circle"></i> Spa, wellness & extras</div>
+                    </div>
+                    <a href="contact.html" class="btn btn-secondary btn-full" id="luxury-book-btn" style="border-color:var(--secondary);color:var(--secondary);">Go Luxury <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         WHAT'S INCLUDED (Comparison Table)
+    ============================= -->
+    <section class="section bg-alt" id="comparison-section" aria-label="Feature comparison">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> Compare Plans</div>
+                <h2 class="section-title">What's <span class="gradient-text">Included?</span></h2>
+            </div>
+            <div style="overflow-x:auto;" class="animate-on-scroll">
+                <table style="width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);">
+                    <thead>
+                        <tr style="background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;">
+                            <th style="padding:18px 24px;text-align:left;font-weight:600;font-size:0.875rem;">Feature</th>
+                            <th style="padding:18px 24px;text-align:center;font-weight:600;font-size:0.875rem;">Budget</th>
+                            <th style="padding:18px 24px;text-align:center;font-weight:600;font-size:0.875rem;background:rgba(255,255,255,0.15);">Explorer ⭐</th>
+                            <th style="padding:18px 24px;text-align:center;font-weight:600;font-size:0.875rem;">Luxury</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid var(--border-light);">
+                            <td style="padding:16px 24px;font-size:0.875rem;color:var(--text-body);">Accommodation</td>
+                            <td style="padding:16px 24px;text-align:center;font-size:0.82rem;color:var(--text-muted);">Budget Hotel</td>
+                            <td style="padding:16px 24px;text-align:center;font-size:0.82rem;background:rgba(15,122,90,0.04);">3–4★ Resort</td>
+                            <td style="padding:16px 24px;text-align:center;font-size:0.82rem;">5★ Palace</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border-light);background:var(--surface-alt);">
+                            <td style="padding:16px 24px;font-size:0.875rem;color:var(--text-body);">Meals</td>
+                            <td style="padding:16px 24px;text-align:center;font-size:0.82rem;color:var(--text-muted);">Breakfast Only</td>
+                            <td style="padding:16px 24px;text-align:center;font-size:0.82rem;background:rgba(15,122,90,0.04);">Breakfast + Dinner</td>
+                            <td style="padding:16px 24px;text-align:center;font-size:0.82rem;">All Meals</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border-light);">
+                            <td style="padding:16px 24px;font-size:0.875rem;color:var(--text-body);">Transport</td>
+                            <td style="padding:16px 24px;text-align:center;"><span style="color:var(--text-muted);font-size:0.82rem;">Shared</span></td>
+                            <td style="padding:16px 24px;text-align:center;background:rgba(15,122,90,0.04);"><span style="color:var(--success);font-size:0.82rem;">Private AC</span></td>
+                            <td style="padding:16px 24px;text-align:center;"><span style="color:var(--secondary);font-size:0.82rem;">Luxury Private</span></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border-light);background:var(--surface-alt);">
+                            <td style="padding:16px 24px;font-size:0.875rem;color:var(--text-body);">Local Guide</td>
+                            <td style="padding:16px 24px;text-align:center;"><i class="fas fa-times" style="color:var(--text-light);"></i></td>
+                            <td style="padding:16px 24px;text-align:center;background:rgba(15,122,90,0.04);"><i class="fas fa-check" style="color:var(--success);"></i></td>
+                            <td style="padding:16px 24px;text-align:center;"><i class="fas fa-check" style="color:var(--success);"></i></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border-light);">
+                            <td style="padding:16px 24px;font-size:0.875rem;color:var(--text-body);">24/7 Support</td>
+                            <td style="padding:16px 24px;text-align:center;"><span style="color:var(--text-muted);font-size:0.82rem;">Email</span></td>
+                            <td style="padding:16px 24px;text-align:center;background:rgba(15,122,90,0.04);"><span style="color:var(--success);font-size:0.82rem;">Priority</span></td>
+                            <td style="padding:16px 24px;text-align:center;"><span style="color:var(--secondary);font-size:0.82rem;">Dedicated</span></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border-light);background:var(--surface-alt);">
+                            <td style="padding:16px 24px;font-size:0.875rem;color:var(--text-body);">Spa & Wellness</td>
+                            <td style="padding:16px 24px;text-align:center;"><i class="fas fa-times" style="color:var(--text-light);"></i></td>
+                            <td style="padding:16px 24px;text-align:center;background:rgba(15,122,90,0.04);"><i class="fas fa-times" style="color:var(--text-light);"></i></td>
+                            <td style="padding:16px 24px;text-align:center;"><i class="fas fa-check" style="color:var(--success);"></i></td>
+                        </tr>
+                        <tr>
+                            <td style="padding:16px 24px;font-size:0.875rem;color:var(--text-body);">Travel Insurance</td>
+                            <td style="padding:16px 24px;text-align:center;"><i class="fas fa-times" style="color:var(--text-light);"></i></td>
+                            <td style="padding:16px 24px;text-align:center;background:rgba(15,122,90,0.04);"><i class="fas fa-check" style="color:var(--success);"></i></td>
+                            <td style="padding:16px 24px;text-align:center;"><i class="fas fa-check" style="color:var(--success);"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         FAQ
+    ============================= -->
+    <section class="section" id="faq-section" aria-label="Frequently asked questions">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> FAQ</div>
+                <h2 class="section-title">Common <span class="gradient-text">Questions</span></h2>
+            </div>
+            <div style="max-width:720px;margin:0 auto;" id="faq-list">
+                <div style="border:1px solid var(--border-light);border-radius:var(--radius-md);margin-bottom:12px;overflow:hidden;" class="animate-on-scroll delay-1" id="faq-1">
+                    <button onclick="toggleFAQ('faq1-body','faq1-icon')" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:var(--surface);border:none;cursor:pointer;text-align:left;font-size:0.9rem;font-weight:600;color:var(--text-dark);" id="faq1-btn">
+                        Are the prices per person or for the whole group?
+                        <i class="fas fa-chevron-down" id="faq1-icon" style="color:var(--primary);transition:transform 0.3s;flex-shrink:0;"></i>
+                    </button>
+                    <div id="faq1-body" style="display:none;padding:16px 20px;font-size:0.875rem;color:var(--text-muted);background:var(--surface-alt);line-height:1.75;">
+                        All prices shown are per person per day. Group discounts are available for parties of 6 or more. Contact us for group pricing.
+                    </div>
+                </div>
+                <div style="border:1px solid var(--border-light);border-radius:var(--radius-md);margin-bottom:12px;overflow:hidden;" class="animate-on-scroll delay-2" id="faq-2">
+                    <button onclick="toggleFAQ('faq2-body','faq2-icon')" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:var(--surface);border:none;cursor:pointer;text-align:left;font-size:0.9rem;font-weight:600;color:var(--text-dark);" id="faq2-btn">
+                        What's your cancellation policy?
+                        <i class="fas fa-chevron-down" id="faq2-icon" style="color:var(--primary);transition:transform 0.3s;flex-shrink:0;"></i>
+                    </button>
+                    <div id="faq2-body" style="display:none;padding:16px 20px;font-size:0.875rem;color:var(--text-muted);background:var(--surface-alt);line-height:1.75;">
+                        Free cancellation up to 7 days before departure. 50% refund for cancellations 3–7 days before. No refund for cancellations within 48 hours.
+                    </div>
+                </div>
+                <div style="border:1px solid var(--border-light);border-radius:var(--radius-md);margin-bottom:12px;overflow:hidden;" class="animate-on-scroll delay-3" id="faq-3">
+                    <button onclick="toggleFAQ('faq3-body','faq3-icon')" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:var(--surface);border:none;cursor:pointer;text-align:left;font-size:0.9rem;font-weight:600;color:var(--text-dark);" id="faq3-btn">
+                        Can I customize any package?
+                        <i class="fas fa-chevron-down" id="faq3-icon" style="color:var(--primary);transition:transform 0.3s;flex-shrink:0;"></i>
+                    </button>
+                    <div id="faq3-body" style="display:none;padding:16px 20px;font-size:0.875rem;color:var(--text-muted);background:var(--surface-alt);line-height:1.75;">
+                        Absolutely! Every WanderIndia package is fully customizable. You can modify destinations, duration, accommodation, activities, and meals to suit your preferences.
+                    </div>
+                </div>
+                <div style="border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden;" class="animate-on-scroll delay-4" id="faq-4">
+                    <button onclick="toggleFAQ('faq4-body','faq4-icon')" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:var(--surface);border:none;cursor:pointer;text-align:left;font-size:0.9rem;font-weight:600;color:var(--text-dark);" id="faq4-btn">
+                        Is travel insurance included?
+                        <i class="fas fa-chevron-down" id="faq4-icon" style="color:var(--primary);transition:transform 0.3s;flex-shrink:0;"></i>
+                    </button>
+                    <div id="faq4-body" style="display:none;padding:16px 20px;font-size:0.875rem;color:var(--text-muted);background:var(--surface-alt);line-height:1.75;">
+                        Travel insurance is included in Explorer and Luxury plans. For Budget plan travelers, we strongly recommend purchasing our affordable insurance add-on.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm" id="pricing-cta">
+        <div class="container">
+            <div class="cta-strip animate-on-scroll">
+                <h2>Not Sure Which Plan Is Right For You?</h2>
+                <p>Our travel experts will help you choose the perfect package for your budget and needs — no pressure, completely free.</p>
+                <div class="cta-strip-actions">
+                    <a href="contact.html" class="btn btn-accent btn-lg btn-shine" id="pricing-contact-btn"><i class="fas fa-phone"></i> Talk to Expert</a>
+                    <a href="packages.html" class="btn btn-ghost btn-lg" id="pricing-pkg-btn"><i class="fas fa-compass"></i> Browse Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script>
+// Pricing Toggle
+function setPricing(type) {
+    const isDay = type === 'day';
+    document.getElementById('per-day-btn').className = isDay ? 'btn btn-primary btn-sm' : 'btn btn-sm';
+    document.getElementById('per-day-btn').style.cssText = isDay ? '' : 'background:transparent;color:var(--text-muted);border-radius:var(--radius-full);';
+    document.getElementById('per-trip-btn').className = !isDay ? 'btn btn-primary btn-sm' : 'btn btn-sm';
+    document.getElementById('per-trip-btn').style.cssText = !isDay ? '' : 'background:transparent;color:var(--text-muted);border-radius:var(--radius-full);';
+    
+    if (isDay) {
+        document.getElementById('budget-amount').textContent = '₹1,500';
+        document.getElementById('explorer-amount').textContent = '₹3,500';
+        document.getElementById('luxury-amount').textContent = '₹8,000';
+        document.getElementById('budget-per').textContent = 'per person / day';
+        document.getElementById('explorer-per').textContent = 'per person / day';
+        document.getElementById('luxury-per').textContent = 'per person / day';
+    } else {
+        document.getElementById('budget-amount').textContent = '₹8,500';
+        document.getElementById('explorer-amount').textContent = '₹19,999';
+        document.getElementById('luxury-amount').textContent = '₹55,000';
+        document.getElementById('budget-per').textContent = 'per person (5-day trip)';
+        document.getElementById('explorer-per').textContent = 'per person (5-day trip)';
+        document.getElementById('luxury-per').textContent = 'per person (7-day trip)';
+    }
+}
+function toggleFAQ(bodyId, iconId) {
+    const body = document.getElementById(bodyId);
+    const icon = document.getElementById(iconId);
+    const isOpen = body.style.display === 'block';
+    body.style.display = isOpen ? 'none' : 'block';
+    icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+// Init pricing buttons style
+document.getElementById('per-day-btn').style.borderRadius = 'var(--radius-full)';
+document.getElementById('per-trip-btn').style.cssText = 'background:transparent;color:var(--text-muted);border-radius:var(--radius-full);border:2px solid transparent;';
+</script>
+<script src="components.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

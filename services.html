@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WanderIndia Services — Custom itinerary planning, hotel bookings, airport transfers, adventure packages, honeymoon tours, group travel, and pilgrimage packages across India.">
+    <title>Services | WanderIndia — Complete Travel Services</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Ccircle cx='50' cy='50' r='44' stroke='%230F7A5A' stroke-width='3' fill='none'/%3E%3Cpath d='M50 22 C42 22 36 28 36 36 C36 46 50 62 50 62 C50 62 64 46 64 36 C64 28 58 22 50 22Z' fill='%23D4A017'/%3E%3Ccircle cx='50' cy='36' r='6' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: var(--primary-light); }
+        .service-card-img { height: 200px; overflow: hidden; position: relative; }
+        .service-card-img img { width:100%; height:100%; object-fit:cover; transition: transform 0.5s; }
+        .service-card:hover .service-card-img img { transform: scale(1.07); }
+        .service-card-icon {
+            position: absolute;
+            bottom: -20px; left: 24px;
+            width: 48px; height: 48px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.1rem;
+            box-shadow: var(--shadow-md);
+            border: 3px solid var(--surface);
+        }
+        .service-card-body { padding: 32px 24px 24px; flex: 1; display:flex; flex-direction:column; }
+        .service-card-title { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--text-dark); margin-bottom:10px; }
+        .service-card-desc { font-size:0.875rem; color:var(--text-muted); line-height:1.8; flex:1; margin-bottom:20px; }
+        .service-card-features { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+        .service-card-features span { background:var(--surface-alt); border:1px solid var(--border-light); border-radius:var(--radius-sm); padding:3px 10px; font-size:0.72rem; color:var(--text-muted); font-weight:500; }
+    </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="page-content">
+
+    <!-- Banner -->
+    <div class="page-banner">
+        <img src="assets/services_custom.png" alt="Travel consultant helping client plan India trip - WanderIndia services">
+        <div class="page-banner-overlay"></div>
+        <div class="page-banner-content">
+            <h1>Our Services</h1>
+            <p style="color:rgba(255,255,255,0.82);margin-bottom:10px;">Everything you need for a perfect India journey</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                <span>Services</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         SERVICES INTRO
+    ============================= -->
+    <section class="section" id="services-intro" aria-label="Services introduction">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> What We Offer</div>
+                <h2 class="section-title">Complete <span class="gradient-text">Travel Solutions</span></h2>
+                <p class="section-desc">From planning your first itinerary to booking luxury stays — WanderIndia is your one-stop shop for every aspect of domestic travel in India.</p>
+            </div>
+
+            <div class="grid-3" id="services-grid">
+                <!-- Service 1: Custom Itinerary -->
+                <div class="service-card animate-on-scroll delay-1" id="svc-1">
+                    <div class="service-card-img">
+                        <img src="assets/services_custom.png" alt="Travel consultant planning custom itinerary on tablet">
+                        <div class="service-card-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3 class="service-card-title">Custom Itinerary Planning</h3>
+                        <p class="service-card-desc">Our travel experts design bespoke itineraries tailored to your interests, budget, and travel style. No two trips are the same — just like no two travelers are.</p>
+                        <div class="service-card-features"><span>Personalized</span><span>24hr Response</span><span>Free Consultation</span></div>
+                        <a href="contact.html" class="btn btn-secondary" id="svc1-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Hotel Bookings -->
+                <div class="service-card animate-on-scroll delay-2" id="svc-2">
+                    <div class="service-card-img">
+                        <img src="assets/pkg_honeymoon.png" alt="Luxury Kerala houseboat hotel accommodation">
+                        <div class="service-card-icon"><i class="fas fa-hotel"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3 class="service-card-title">Hotel & Stay Bookings</h3>
+                        <p class="service-card-desc">Access 10,000+ partner hotels, resorts, houseboats, and homestays across India — from budget guesthouses to 5-star luxury palaces.</p>
+                        <div class="service-card-features"><span>10,000+ Partners</span><span>Best Rate</span><span>Instant Confirm</span></div>
+                        <a href="contact.html" class="btn btn-secondary" id="svc2-btn">Book Stay <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Transport -->
+                <div class="service-card animate-on-scroll delay-3" id="svc-3">
+                    <div class="service-card-img">
+                        <img src="assets/hero_home.png" alt="Mountain highway transport in Himalayas">
+                        <div class="service-card-icon"><i class="fas fa-bus-alt"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3 class="service-card-title">Transport & Transfers</h3>
+                        <p class="service-card-desc">Comfortable, air-conditioned vehicle hire for all your intra-city and intercity travel needs — from airport pickups to long mountain drives.</p>
+                        <div class="service-card-features"><span>AC Vehicles</span><span>Trained Drivers</span><span>24/7 Support</span></div>
+                        <a href="contact.html" class="btn btn-secondary" id="svc3-btn">Book Transport <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Adventure -->
+                <div class="service-card animate-on-scroll delay-1" id="svc-4">
+                    <div class="service-card-img">
+                        <img src="assets/pkg_adventure.png" alt="River rafting adventure in Rishikesh">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#6B46C1,#9B59B6);"><i class="fas fa-hiking"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3 class="service-card-title">Adventure Activities</h3>
+                        <p class="service-card-desc">Curated adventure experiences — river rafting, trekking, bungee jumping, paragliding, skiing — with certified operators and full safety equipment.</p>
+                        <div class="service-card-features"><span>Certified Guides</span><span>Safety Gear</span><span>Insurance</span></div>
+                        <a href="packages.html" class="btn btn-secondary" id="svc4-btn">Explore Adventures <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Honeymoon -->
+                <div class="service-card animate-on-scroll delay-2" id="svc-5">
+                    <div class="service-card-img">
+                        <img src="assets/hero_home2.png" alt="Romantic Goa beach sunset for honeymoon couples">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#D4A017,#A87C0D);"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3 class="service-card-title">Honeymoon Packages</h3>
+                        <p class="service-card-desc">Make your first trip as a couple magical. Romantic dinners, couple spa treatments, private beach access — every detail crafted with love.</p>
+                        <div class="service-card-features"><span>Couple-Exclusive</span><span>Romantic Setups</span><span>Spa Included</span></div>
+                        <a href="packages.html" class="btn btn-secondary" id="svc5-btn">Plan Romance <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 6: Group Tours -->
+                <div class="service-card animate-on-scroll delay-3" id="svc-6">
+                    <div class="service-card-img">
+                        <img src="assets/about_team.png" alt="Group of travelers on a WanderIndia tour">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#27AE60,#1E8449);"><i class="fas fa-users"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3 class="service-card-title">Group & Corporate Tours</h3>
+                        <p class="service-card-desc">Seamless group travel for families, friends, and corporate teams. We handle logistics, accommodation, and activities for groups of 10–500+.</p>
+                        <div class="service-card-features"><span>10–500+ Guests</span><span>Group Discounts</span><span>Team Events</span></div>
+                        <a href="contact.html" class="btn btn-secondary" id="svc6-btn">Plan Group Trip <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 7: Pilgrimage -->
+                <div class="service-card animate-on-scroll delay-1" id="svc-7">
+                    <div class="service-card-img">
+                        <img src="assets/dest_varanasi.png" alt="Varanasi Ganges spiritual pilgrimage tour">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#9B59B6,#6C3483);"><i class="fas fa-om"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3 class="service-card-title">Pilgrimage Tours</h3>
+                        <p class="service-card-desc">Spiritually enriching journeys to Varanasi, Tirupati, Char Dham, Shirdi, and more. Respectful, thoughtful itineraries designed for devotees.</p>
+                        <div class="service-card-features"><span>All Religions</span><span>VIP Darshan</span><span>Puja Arrangements</span></div>
+                        <a href="packages.html" class="btn btn-secondary" id="svc7-btn">Spiritual Tours <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 8: Photography -->
+                <div class="service-card animate-on-scroll delay-2" id="svc-8">
+                    <div class="service-card-img">
+                        <img src="assets/gallery_south.png" alt="South India temple photography tour">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#E74C3C,#C0392B);"><i class="fas fa-camera"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3 class="service-card-title">Photography Tours</h3>
+                        <p class="service-card-desc">Specialized tours for photography enthusiasts — golden hour temple shoots, wildlife photography, landscape expeditions with professional guidance.</p>
+                        <div class="service-card-features"><span>Pro Photography</span><span>Golden Hour</span><span>Expert Guidance</span></div>
+                        <a href="contact.html" class="btn btn-secondary" id="svc8-btn">Book Photo Tour <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 9: Northeast -->
+                <div class="service-card animate-on-scroll delay-3" id="svc-9">
+                    <div class="service-card-img">
+                        <img src="assets/gallery_northeast.png" alt="Meghalaya living root bridge in Northeast India">
+                        <div class="service-card-icon" style="background:linear-gradient(135deg,#27AE60,#16A085);"><i class="fas fa-leaf"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3 class="service-card-title">Northeast India Explorer</h3>
+                        <p class="service-card-desc">Discover India's hidden gem — the Northeast. Meghalaya living root bridges, Assam tea gardens, Nagaland tribal culture. Raw, real, breathtaking.</p>
+                        <div class="service-card-features"><span>Offbeat Routes</span><span>Tribal Culture</span><span>Wildlife</span></div>
+                        <a href="packages.html" class="btn btn-secondary" id="svc9-btn">Explore Northeast <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         HOW IT WORKS
+    ============================= -->
+    <section class="section bg-alt" id="how-it-works" aria-label="How our service works">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> Our Process</div>
+                <h2 class="section-title">How <span class="gradient-text">WanderIndia Works</span></h2>
+                <p class="section-desc">4 simple steps from dream to destination.</p>
+            </div>
+            <div class="process-steps animate-on-scroll" id="process-steps">
+                <div class="process-step delay-1">
+                    <div class="process-step-num">1</div>
+                    <h4>Share Your Dream</h4>
+                    <p>Tell us your destination, dates, budget, and travel style through our enquiry form or a phone call.</p>
+                </div>
+                <div class="process-step delay-2">
+                    <div class="process-step-num">2</div>
+                    <h4>We Design It</h4>
+                    <p>Our expert travel designers craft a personalized itinerary within 24 hours — completely free.</p>
+                </div>
+                <div class="process-step delay-3">
+                    <div class="process-step-num">3</div>
+                    <h4>Finalize & Book</h4>
+                    <p>Review and tweak your itinerary. Confirm the plan and make a secure booking online.</p>
+                </div>
+                <div class="process-step delay-4">
+                    <div class="process-step-num">4</div>
+                    <h4>Explore & Enjoy!</h4>
+                    <p>Pack your bags and set off. We're with you throughout — our support team is always a call away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm" id="svc-cta">
+        <div class="container">
+            <div class="cta-strip animate-on-scroll">
+                <h2>Ready to Experience WanderIndia?</h2>
+                <p>Let us craft your perfect India journey. It all starts with a conversation.</p>
+                <div class="cta-strip-actions">
+                    <a href="contact.html" class="btn btn-accent btn-lg btn-shine" id="svc-cta-btn"><i class="fas fa-paper-plane"></i> Get Free Consultation</a>
+                    <a href="packages.html" class="btn btn-ghost btn-lg" id="svc-pkg-btn"><i class="fas fa-compass"></i> Browse Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="components.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
