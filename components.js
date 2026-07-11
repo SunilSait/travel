@@ -95,7 +95,6 @@
                         <button class="icon-btn rtl-toggle" id="nav-rtl-toggle" title="Toggle RTL" aria-label="Toggle RTL direction">
                             <i class="fas fa-exchange-alt"></i>
                         </button>
-                        <a href="login.html" class="btn btn-secondary btn-sm" id="nav-login">Sign In</a>
                         <a href="signup.html" class="btn btn-primary btn-sm btn-shine" id="nav-signup">Sign Up</a>
                         <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
                             <span></span><span></span><span></span>
@@ -109,7 +108,14 @@
         <div class="nav-mobile" id="nav-mobile" role="navigation" aria-label="Mobile navigation">
             ${mobileLinks}
             <div class="nav-mobile-actions">
-                <a href="login.html" class="btn btn-secondary" id="mobile-login">Sign In</a>
+                <div style="display:flex; gap:8px; margin-bottom:10px;">
+                    <button class="icon-btn dark-toggle" style="flex:1; height:42px; border-radius:var(--radius-sm); font-size:0.82rem; font-weight:600; display:flex; gap:8px;" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i> Theme
+                    </button>
+                    <button class="icon-btn rtl-toggle" style="flex:1; height:42px; border-radius:var(--radius-sm); font-size:0.82rem; font-weight:600; display:flex; gap:8px;" aria-label="Toggle RTL direction">
+                        <i class="fas fa-exchange-alt"></i> RTL
+                    </button>
+                </div>
                 <a href="signup.html" class="btn btn-primary btn-shine" id="mobile-signup">Sign Up</a>
             </div>
         </div>`;

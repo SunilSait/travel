@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
@@ -90,21 +90,16 @@
             background: var(--secondary);
         }
 
-        /* Horizontal scroll destinations */
+        /* Destinations Grid */
         .scroll-track {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-light) var(--border-light);
-            cursor: grab;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+            padding-bottom: 0;
         }
-        .scroll-track::-webkit-scrollbar { height: 4px; }
-        .scroll-track::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 4px; }
         .scroll-dest-card {
-            flex: 0 0 260px;
-            height: 340px;
+            width: 100%;
+            height: 360px;
             border-radius: var(--radius-lg);
             overflow: hidden;
             position: relative;
@@ -123,7 +118,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 20px;
+            padding: 24px;
         }
 
         /* Experience section */
@@ -177,11 +172,16 @@
             font-size: 1.1rem;
         }
 
+        @media (max-width: 992px) {
+            .scroll-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+        }
         @media (max-width: 768px) {
             .h2-stats { grid-template-columns: repeat(2,1fr); margin-top: 0; }
-            .scroll-dest-card { flex: 0 0 200px; height: 260px; }
+            .scroll-dest-card { height: 280px; }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
+            .scroll-track { grid-template-columns: minmax(0, 1fr); }
+            .scroll-dest-card { height: 240px; }
             .h2-stats { grid-template-columns: 1fr 1fr; }
         }
     </style>
@@ -271,9 +271,9 @@
     </section>
 
     <!-- ============================
-         HORIZONTAL SCROLL DESTINATIONS
+         DESTINATIONS GRID
     ============================= -->
-    <section class="section bg-alt" id="h2-destinations" aria-label="Destinations horizontal scroll">
+    <section class="section bg-alt" id="h2-destinations" aria-label="Destinations grid">
         <div class="container">
             <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;" class="animate-on-scroll">
                 <div>
@@ -285,42 +285,42 @@
 
             <div class="scroll-track animate-on-scroll" id="scroll-destinations">
                 <div class="scroll-dest-card">
-                    <img src="assets/dest_kerala.png" alt="Kerala backwaters">
+                    <img src="assets/h2_dest_kerala_new.png" alt="Kerala backwaters">
                     <div class="scroll-dest-card-overlay">
                         <div class="dest-card-name">Kerala</div>
                         <div class="dest-card-meta"><i class="fas fa-star" style="color:var(--secondary);"></i> 4.9 · 120 packages</div>
                     </div>
                 </div>
                 <div class="scroll-dest-card">
-                    <img src="assets/dest_goa.png" alt="Goa beach">
+                    <img src="assets/h2_dest_goa.png" alt="Goa beach">
                     <div class="scroll-dest-card-overlay">
                         <div class="dest-card-name">Goa</div>
                         <div class="dest-card-meta"><i class="fas fa-star" style="color:var(--secondary);"></i> 4.7 · 80 packages</div>
                     </div>
                 </div>
                 <div class="scroll-dest-card">
-                    <img src="assets/dest_rajasthan.png" alt="Rajasthan fort">
+                    <img src="assets/h2_dest_rajasthan.png" alt="Rajasthan fort">
                     <div class="scroll-dest-card-overlay">
                         <div class="dest-card-name">Rajasthan</div>
                         <div class="dest-card-meta"><i class="fas fa-star" style="color:var(--secondary);"></i> 4.8 · 95 packages</div>
                     </div>
                 </div>
                 <div class="scroll-dest-card">
-                    <img src="assets/dest_himachal.png" alt="Himachal mountains">
+                    <img src="assets/h2_dest_himachal.png" alt="Himachal mountains">
                     <div class="scroll-dest-card-overlay">
                         <div class="dest-card-name">Himachal</div>
                         <div class="dest-card-meta"><i class="fas fa-star" style="color:var(--secondary);"></i> 4.9 · 70 packages</div>
                     </div>
                 </div>
                 <div class="scroll-dest-card">
-                    <img src="assets/dest_varanasi.png" alt="Varanasi ghats">
+                    <img src="assets/h2_dest_varanasi_new.png" alt="Varanasi ghats">
                     <div class="scroll-dest-card-overlay">
                         <div class="dest-card-name">Varanasi</div>
                         <div class="dest-card-meta"><i class="fas fa-star" style="color:var(--secondary);"></i> 4.8 · 45 packages</div>
                     </div>
                 </div>
                 <div class="scroll-dest-card">
-                    <img src="assets/dest_manali.png" alt="Manali mountain pass">
+                    <img src="assets/h2_dest_manali.png" alt="Manali mountain pass">
                     <div class="scroll-dest-card-overlay">
                         <div class="dest-card-name">Manali</div>
                         <div class="dest-card-meta"><i class="fas fa-star" style="color:var(--secondary);"></i> 4.8 · 60 packages</div>
@@ -345,7 +345,7 @@
                 <!-- Package 1: Honeymoon -->
                 <div class="pkg-card animate-on-scroll delay-1" id="h2-pkg-1">
                     <div class="pkg-card-img">
-                        <img src="assets/pkg_honeymoon.png" alt="Kerala romantic honeymoon houseboat">
+                        <img src="assets/h2_pkg_honeymoon.png" alt="Kerala romantic honeymoon houseboat">
                         <div class="pkg-card-badge" style="background:linear-gradient(90deg,#D4A017,#A87C0D);">Honeymoon</div>
                         <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
                     </div>
@@ -374,7 +374,7 @@
                 <!-- Package 2: Adventure -->
                 <div class="pkg-card animate-on-scroll delay-2" id="h2-pkg-2">
                     <div class="pkg-card-img">
-                        <img src="assets/pkg_adventure.png" alt="Rishikesh river rafting adventure">
+                        <img src="assets/h2_pkg_adventure.png" alt="Rishikesh river rafting adventure">
                         <div class="pkg-card-badge" style="background:#6B46C1;">Adventure</div>
                         <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
                     </div>
@@ -403,7 +403,7 @@
                 <!-- Package 3: Heritage -->
                 <div class="pkg-card animate-on-scroll delay-3" id="h2-pkg-3">
                     <div class="pkg-card-img">
-                        <img src="assets/pkg_week.png" alt="Jaipur City Palace cultural heritage tour">
+                        <img src="assets/h2_pkg_heritage.png" alt="Jaipur City Palace cultural heritage tour">
                         <div class="pkg-card-badge" style="background:var(--primary);">Heritage</div>
                         <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
                     </div>
@@ -460,7 +460,7 @@
     </section>
 
     <!-- ============================
-         TESTIMONIALS CAROUSEL
+         TESTIMONIALS GRID
     ============================= -->
     <section class="section" id="h2-testimonials" aria-label="Testimonials">
         <div class="container">
@@ -468,45 +468,36 @@
                 <div class="section-label"><span class="dot"></span> Traveler Stories</div>
                 <h2 class="section-title"><span class="gradient-text">Real Journeys,</span> Real Smiles</h2>
             </div>
-            <div style="position:relative;max-width:700px;margin:0 auto;" class="animate-on-scroll">
-                <div style="overflow:hidden;border-radius:var(--radius-xl);">
-                    <div id="testi-track" style="display:flex;transition:transform 0.5s ease;">
-                        <div class="testimonial-slide" style="min-width:100%;">
-                            <div class="testimonial-card" style="box-shadow:var(--shadow-lg);">
-                                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="testimonial-text">"WanderIndia planned our entire honeymoon in Kerala — it was absolutely flawless! The luxury houseboat, the candlelit dinners, the spa treatments. They thought of everything. We're already planning our anniversary trip with them!"</p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-avatar-placeholder">S</div>
-                                    <div><div class="testimonial-name">Sneha & Vikram Patel</div><div class="testimonial-location"><i class="fas fa-map-pin" style="color:var(--secondary);font-size:0.7rem;"></i> Ahmedabad, Gujarat</div></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-slide" style="min-width:100%;">
-                            <div class="testimonial-card" style="box-shadow:var(--shadow-lg);">
-                                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="testimonial-text">"Booked the Rishikesh adventure package on a whim and it was the best decision of my life! River rafting at sunrise, bungee jumping, camping under the stars — all seamlessly organized by WanderIndia's amazing team."</p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-avatar-placeholder">M</div>
-                                    <div><div class="testimonial-name">Mithun Krishnaswamy</div><div class="testimonial-location"><i class="fas fa-map-pin" style="color:var(--secondary);font-size:0.7rem;"></i> Chennai, Tamil Nadu</div></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-slide" style="min-width:100%;">
-                            <div class="testimonial-card" style="box-shadow:var(--shadow-lg);">
-                                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                                <p class="testimonial-text">"Our family trip to Rajasthan was phenomenal. The kids loved the camel rides, we loved the palace hotels, and grandma loved the cultural shows. WanderIndia tailored it perfectly for all of us. 10/10!"</p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-avatar-placeholder">D</div>
-                                    <div><div class="testimonial-name">Deepa Menon</div><div class="testimonial-location"><i class="fas fa-map-pin" style="color:var(--secondary);font-size:0.7rem;"></i> Kochi, Kerala</div></div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="grid-3 animate-on-scroll" id="h2-testimonials-grid">
+                <div class="testimonial-card" style="box-shadow:var(--shadow-lg);height:100%;display:flex;flex-direction:column;justify-content:space-between;">
+                    <div>
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"WanderIndia planned our entire honeymoon in Kerala — it was absolutely flawless! The luxury houseboat, the candlelit dinners, the spa treatments. They thought of everything. We're already planning our anniversary trip with them!"</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top:auto;padding-top:16px;">
+                        <img src="assets/avatar_sneha_vikram.png" alt="Sneha & Vikram Patel profile picture" class="testimonial-avatar">
+                        <div><div class="testimonial-name">Sneha & Vikram Patel</div><div class="testimonial-location"><i class="fas fa-map-pin" style="color:var(--secondary);font-size:0.7rem;"></i> Ahmedabad, Gujarat</div></div>
                     </div>
                 </div>
-                <!-- Controls -->
-                <div style="display:flex;justify-content:center;gap:12px;margin-top:24px;">
-                    <button id="testi-prev" class="icon-btn" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
-                    <button id="testi-next" class="icon-btn" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+                <div class="testimonial-card" style="box-shadow:var(--shadow-lg);height:100%;display:flex;flex-direction:column;justify-content:space-between;">
+                    <div>
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"Booked the Rishikesh adventure package on a whim and it was the best decision of my life! River rafting at sunrise, bungee jumping, camping under the stars — all seamlessly organized by WanderIndia's amazing team."</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top:auto;padding-top:16px;">
+                        <img src="assets/avatar_mithun.png" alt="Mithun Krishnaswamy profile picture" class="testimonial-avatar">
+                        <div><div class="testimonial-name">Mithun Krishnaswamy</div><div class="testimonial-location"><i class="fas fa-map-pin" style="color:var(--secondary);font-size:0.7rem;"></i> Chennai, Tamil Nadu</div></div>
+                    </div>
+                </div>
+                <div class="testimonial-card" style="box-shadow:var(--shadow-lg);height:100%;display:flex;flex-direction:column;justify-content:space-between;">
+                    <div>
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="testimonial-text">"Our family trip to Rajasthan was phenomenal. The kids loved the camel rides, we loved the palace hotels, and grandma loved the cultural shows. WanderIndia tailored it perfectly for all of us. 10/10!"</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top:auto;padding-top:16px;">
+                        <img src="assets/avatar_deepa.png" alt="Deepa Menon profile picture" class="testimonial-avatar">
+                        <div><div class="testimonial-name">Deepa Menon</div><div class="testimonial-location"><i class="fas fa-map-pin" style="color:var(--secondary);font-size:0.7rem;"></i> Kochi, Kerala</div></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -620,29 +611,9 @@ function submitH2Enquiry(e) {
     document.getElementById('h2-enq-success').style.display = 'block';
 }
 
-// Drag scroll
-const track = document.getElementById('scroll-destinations');
-if (track) {
-    let isDragging = false, startX, scrollLeft;
-    track.addEventListener('mousedown', (e) => { isDragging = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; track.style.cursor = 'grabbing'; });
-    track.addEventListener('mouseleave', () => { isDragging = false; track.style.cursor = 'grab'; });
-    track.addEventListener('mouseup', () => { isDragging = false; track.style.cursor = 'grab'; });
-    track.addEventListener('mousemove', (e) => { if (!isDragging) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX); });
-}
+// Destinations list is displayed as a grid, no drag scroll script required
 
-// Testimonial carousel via script.js initTestimonialCarousel uses #testi-track
-// Override: use h2 carousel
-document.addEventListener('DOMContentLoaded', () => {
-    const track2 = document.getElementById('testi-track');
-    const prev = document.getElementById('testi-prev');
-    const next = document.getElementById('testi-next');
-    if (!track2 || !prev || !next) return;
-    let cur = 0;
-    const total = track2.querySelectorAll('.testimonial-slide').length;
-    prev.addEventListener('click', () => { cur = ((cur - 1) + total) % total; track2.style.transform = `translateX(-${cur * 100}%)`; });
-    next.addEventListener('click', () => { cur = (cur + 1) % total; track2.style.transform = `translateX(-${cur * 100}%)`; });
-    setInterval(() => { cur = (cur + 1) % total; track2.style.transform = `translateX(-${cur * 100}%)`; }, 5000);
-});
+// Testimonial carousel overrides removed, using CSS grid layout
 </script>
 <script src="components.js"></script>
 <script src="script.js"></script>

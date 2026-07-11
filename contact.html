@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
@@ -13,10 +13,10 @@
             background: var(--surface);
             border: 1px solid var(--border-light);
             border-radius: var(--radius-lg);
-            padding: 28px;
+            padding: 24px 20px;
             display: flex;
             align-items: flex-start;
-            gap: 16px;
+            gap: 12px;
             transition: var(--transition);
         }
         .contact-info-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: var(--shadow-md); }
@@ -31,8 +31,8 @@
             border: 1px solid var(--border-light);
         }
         .contact-info-title { font-weight: 600; font-size: 0.9rem; color: var(--text-dark); margin-bottom: 4px; }
-        .contact-info-value { font-size: 0.875rem; color: var(--text-muted); }
-        .contact-info-value a { color: var(--primary); }
+        .contact-info-value { font-size: 0.875rem; color: var(--text-muted); overflow-wrap: anywhere; }
+        .contact-info-value a { color: var(--primary); overflow-wrap: anywhere; }
         .contact-info-value a:hover { color: var(--secondary); }
     </style>
 </head>
@@ -44,7 +44,7 @@
 
     <!-- Banner -->
     <div class="page-banner">
-        <img src="assets/about_team.png" alt="WanderIndia team ready to help you plan your trip - Contact Us">
+        <img src="assets/contact_banner.png" alt="WanderIndia travel planning tools - Contact Us">
         <div class="page-banner-overlay"></div>
         <div class="page-banner-content">
             <h1>Contact Us</h1>
@@ -122,12 +122,8 @@
 
                     <form id="contact-form" onsubmit="submitContactForm(event)">
                         <div class="form-group">
-                            <label class="form-label" for="cf-first-name">First Name</label>
-                            <input type="text" id="cf-first-name" class="form-input" placeholder="Your first name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="cf-last-name">Last Name</label>
-                            <input type="text" id="cf-last-name" class="form-input" placeholder="Your last name" required>
+                            <label class="form-label" for="cf-name">Full Name</label>
+                            <input type="text" id="cf-name" class="form-input" placeholder="Your full name" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="cf-email">Email Address</label>
@@ -146,52 +142,6 @@
                             <input type="date" id="cf-travel-date" class="form-input">
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="cf-duration">Trip Duration</label>
-                            <select id="cf-duration" class="form-input">
-                                <option value="">Select duration</option>
-                                <option>2–3 Days (Weekend)</option>
-                                <option>4–5 Days (Short Break)</option>
-                                <option>6–7 Days (Week)</option>
-                                <option>8–10 Days (Extended)</option>
-                                <option>10+ Days (Grand Tour)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="cf-travelers">Number of Travelers</label>
-                            <select id="cf-travelers" class="form-input">
-                                <option value="">Select</option>
-                                <option>1 (Solo)</option>
-                                <option>2 (Couple)</option>
-                                <option>3–5 (Family/Friends)</option>
-                                <option>6–10 (Group)</option>
-                                <option>10+ (Large Group)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="cf-budget">Budget per Person</label>
-                            <select id="cf-budget" class="form-input">
-                                <option value="">Select budget range</option>
-                                <option>Under ₹10,000</option>
-                                <option>₹10,000 – ₹25,000</option>
-                                <option>₹25,000 – ₹50,000</option>
-                                <option>₹50,000 – ₹1,00,000</option>
-                                <option>Above ₹1,00,000</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="cf-trip-type">Trip Type</label>
-                            <select id="cf-trip-type" class="form-input">
-                                <option value="">Select trip type</option>
-                                <option>Honeymoon / Romantic</option>
-                                <option>Family Vacation</option>
-                                <option>Adventure / Trekking</option>
-                                <option>Cultural / Heritage</option>
-                                <option>Pilgrimage / Spiritual</option>
-                                <option>Solo Travel</option>
-                                <option>Corporate / Team Outing</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label class="form-label" for="cf-message">Additional Requirements / Message</label>
                             <textarea id="cf-message" class="form-textarea" rows="4" placeholder="Any special requests, dietary needs, accessibility requirements, or anything else we should know..."></textarea>
                         </div>
@@ -206,15 +156,7 @@
 
                 <!-- Right Side: Map + Social + Quick Contact -->
                 <div class="animate-on-scroll fade-right">
-                    <!-- Map Placeholder -->
-                    <div style="background:linear-gradient(135deg,var(--primary-glow),var(--secondary-glow));border:1px solid var(--border-light);border-radius:var(--radius-xl);height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:28px;position:relative;overflow:hidden;" id="map-placeholder">
-                        <div style="position:absolute;inset:0;opacity:0.08;background-image:radial-gradient(circle,var(--primary) 1px,transparent 1px);background-size:24px 24px;"></div>
-                        <i class="fas fa-map-marked-alt" style="font-size:3rem;color:var(--primary);margin-bottom:16px;position:relative;"></i>
-                        <p style="color:var(--text-muted);font-size:0.875rem;text-align:center;position:relative;max-width:200px;">12 Travel House, MG Road, Bangalore – 560001</p>
-                        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm btn-shine" style="margin-top:16px;position:relative;" id="open-map-btn">
-                            <i class="fas fa-directions"></i> Get Directions
-                        </a>
-                    </div>
+
 
                     <!-- Social Proof -->
                     <div style="background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px;margin-bottom:20px;">
@@ -249,7 +191,73 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Direct Contact Info Card -->
+                    <div style="background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px;" class="animate-on-scroll">
+                        <h4 style="font-size:0.9rem;margin-bottom:16px;color:var(--text-dark);">Direct Support</h4>
+                        <div style="display:flex;flex-direction:column;gap:12px;font-size:0.85rem;color:var(--text-muted);">
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-phone-alt" style="color:var(--primary);width:16px;"></i>
+                                <span>+91 80 4123 4567 / +91 98765 43210</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-envelope" style="color:var(--primary);width:16px;"></i>
+                                <span>bookings@wanderindia.com</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-history" style="color:var(--primary);width:16px;"></i>
+                                <span>Office Hours: Mon–Sat, 9 AM – 7 PM</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-headset" style="color:var(--secondary);width:16px;animation:pulse 2s infinite;"></i>
+                                <span style="font-weight:600;color:var(--text-dark);">24/7 Helpline: 1800-123-4567</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Head Office Address Card -->
+                    <div style="background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px;margin-top:20px;" class="animate-on-scroll">
+                        <h4 style="font-size:0.9rem;margin-bottom:16px;color:var(--text-dark);">Head Office</h4>
+                        <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.85rem;color:var(--text-muted);line-height:1.6;">
+                            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary-glow),var(--secondary-glow));border:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;color:var(--primary);flex-shrink:0;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p style="font-weight:600;color:var(--text-dark);margin-bottom:4px;">WanderIndia Travel Pvt. Ltd.</p>
+                                <p>12 Travel House, MG Road,<br>Bangalore, Karnataka – 560001</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badges Card -->
+                    <div style="background:rgba(255,255,255,0.03);border:1px dashed var(--border-light);border-radius:var(--radius-md);padding:14px 20px;margin-top:20px;display:flex;flex-direction:column;gap:8px;" class="animate-on-scroll">
+                        <div style="display:flex;align-items:center;gap:8px;font-size:0.78rem;color:var(--text-muted);">
+                            <i class="fas fa-check-circle" style="color:var(--primary);"></i>
+                            <span>Govt. of India Registered Agency</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:0.78rem;color:var(--text-muted);">
+                            <i class="fas fa-shield-alt" style="color:var(--primary);"></i>
+                            <span>100% Secure Bookings & Payments</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Map Section -->
+    <section style="padding: 0 0 72px;" class="animate-on-scroll" id="live-map-section">
+        <div class="container">
+            <div style="border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border-light); box-shadow:var(--shadow-lg); height: 380px; width: 100%; position:relative;">
+                <iframe 
+                    src="https://maps.google.com/maps?q=MG%20Road%20Bangalore&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>

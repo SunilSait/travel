@@ -52,6 +52,7 @@
     function initNavbarScroll() {
         const navbar = document.getElementById('navbar');
         if (!navbar) return;
+
         const handler = () => {
             navbar.classList.toggle('scrolled', window.scrollY > 30);
         };
@@ -230,6 +231,34 @@
         });
     }
 
+    // ---- Scroll to Top Button ----
+    function initScrollTop() {
+        const btn = document.createElement('button');
+        btn.className = 'scroll-top-btn';
+        btn.id = 'scroll-to-top';
+        btn.setAttribute('aria-label', 'Scroll to top');
+        btn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        document.body.appendChild(btn);
+
+        const toggleVisibility = () => {
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        };
+
+        window.addEventListener('scroll', toggleVisibility, { passive: true });
+        toggleVisibility();
+
+        btn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // ---- Testimonial Carousel ----
     function initTestimonialCarousel() {
         const track = document.querySelector('.testimonial-track');
@@ -288,6 +317,7 @@
             initCountdown();
             initCSForm();
             initSmoothScroll();
+            initScrollTop();
             initTestimonialCarousel();
             initPackageFilter();
         }, 50);
