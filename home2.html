@@ -148,7 +148,7 @@
             display: grid;
             grid-template-columns: repeat(4,1fr);
             gap: 24px;
-            margin-top: 48px;
+            margin-top: 0;
             position: relative;
             z-index: 10;
         }
@@ -172,17 +172,190 @@
             font-size: 1.1rem;
         }
 
+        .h2-enquiry-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
         @media (max-width: 992px) {
             .scroll-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
         }
         @media (max-width: 768px) {
-            .h2-stats { grid-template-columns: repeat(2,1fr); margin-top: 40px; }
+            .h2-stats { grid-template-columns: repeat(2,1fr); margin-top: 0; }
             .scroll-dest-card { height: 280px; }
+            .h2-enquiry-form { grid-template-columns: 1fr; }
         }
         @media (max-width: 576px) {
             .scroll-track { grid-template-columns: minmax(0, 1fr); }
             .scroll-dest-card { height: 240px; }
             .h2-stats { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* About Us Section styles */
+        .h2-about-img-box {
+            position: relative;
+            padding-right: 20px;
+            padding-bottom: 20px;
+        }
+        .h2-about-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
+        }
+        .h2-about-img-box::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80%;
+            height: 80%;
+            border: 2px solid var(--secondary-light);
+            border-radius: var(--radius-xl);
+            z-index: -1;
+            transform: translate(14px, 14px);
+        }
+        .h2-about-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        .h2-about-badge-years {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-light);
+            line-height: 1.1;
+        }
+        .h2-about-badge-text {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+        .h2-about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 24px;
+        }
+        .h2-about-highlight-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .h2-about-highlight-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            background: var(--primary-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1rem;
+            flex-shrink: 0;
+            border: 1px solid var(--border-light);
+        }
+        .h2-about-highlight-item h4 {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        .h2-about-highlight-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Why Us Section styles */
+        .h2-why-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .h2-why-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        .h2-why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+        .h2-why-card:hover::after {
+            transform: scaleX(1);
+        }
+        .h2-why-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        .h2-why-card:hover .h2-why-icon-wrapper {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            transform: rotate(10deg) scale(1.05);
+            box-shadow: var(--shadow-primary);
+        }
+        .h2-why-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        .h2-why-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1024px) {
+            #h2-why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            #h2-why-grid {
+                grid-template-columns: 1fr;
+            }
+            .h2-about-img-box {
+                margin-bottom: 40px;
+                padding-right: 0;
+            }
         }
     </style>
 </head>
@@ -226,7 +399,7 @@
                         <i class="fas fa-gem"></i> Explore Premium
                     </a>
                     <a href="contact.html" class="btn btn-ghost btn-lg" id="h2-contact-btn">
-                        <i class="fas fa-phone-alt"></i> Speak to Expert
+                        <i class="fas fa-phone"></i> Speak to Expert
                     </a>
                 </div>
             </div>
@@ -243,7 +416,7 @@
     <!-- ============================
          ANIMATED STATS
     ============================= -->
-    <section style="padding:0 0 72px;" id="h2-stats-section">
+    <section style="padding:60px 0 72px;" id="h2-stats-section">
         <div class="container">
             <div class="h2-stats">
                 <div class="h2-stat-card animate-on-scroll delay-1" id="h2-stat-1">
@@ -265,6 +438,58 @@
                     <div class="h2-stat-icon"><i class="fas fa-star"></i></div>
                     <div class="stat-number" data-count="4" data-suffix=".9/5">0</div>
                     <div class="stat-label">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         ABOUT US
+    ============================= -->
+    <section class="section" id="h2-about-us" aria-label="About WanderIndia Premium">
+        <div class="container">
+            <div class="grid-2" style="gap:56px; align-items:center;">
+                <div class="animate-on-scroll">
+                    <div class="h2-about-img-box">
+                        <img src="assets/about_premium_resort.png" alt="WanderIndia premium resort composition" class="h2-about-img">
+                        <div class="h2-about-badge">
+                            <div class="h2-about-badge-years">12+</div>
+                            <div class="h2-about-badge-text">Years of Excellence</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-on-scroll">
+                    <div class="section-label">
+                        <span class="dot"></span> Who We Are
+                    </div>
+                    <h2 class="section-title">Crafted For The <span class="gradient-text">Discerning Traveler</span></h2>
+                    <p style="color:var(--text-muted); line-height:1.85; margin-bottom:20px;">
+                        WanderIndia Premium is a boutique extension of our travel philosophy. We curate extraordinary journeys across India for those who seek unmatched luxury, complete privacy, and authentic cultural immersion.
+                    </p>
+                    <p style="color:var(--text-muted); line-height:1.85; margin-bottom:28px;">
+                        Our handcrafted itineraries combine high-end hospitality with raw, natural beauty—ensuring that every moment of your vacation is seamless, exclusive, and unforgettable.
+                    </p>
+                    <div class="h2-about-highlights">
+                        <div class="h2-about-highlight-item">
+                            <div class="h2-about-highlight-icon"><i class="fas fa-gem"></i></div>
+                            <div>
+                                <h4>Bespoke Luxury Itineraries</h4>
+                                <p>Tailored from scratch to perfectly align with your personal tastes and pace.</p>
+                            </div>
+                        </div>
+                        <div class="h2-about-highlight-item">
+                            <div class="h2-about-highlight-icon"><i class="fas fa-crown"></i></div>
+                            <div>
+                                <h4>Elite Stays & Palaces</h4>
+                                <p>Handselected heritage palaces, luxury houseboats, and award-winning retreats.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top:36px;">
+                        <a href="about.html" class="btn btn-secondary" id="h2-about-learn-more">
+                            Read Our Story <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -431,9 +656,60 @@
     </section>
 
     <!-- ============================
+         WHY CHOOSE US
+    ============================= -->
+    <section class="section bg-alt" id="h2-why-us" aria-label="Why Choose WanderIndia Premium">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> The Premium Advantage</div>
+                <h2 class="section-title">Why Travel With <span class="gradient-text">WanderIndia Premium</span></h2>
+                <p class="section-desc">We elevate standard tourism into once-in-a-lifetime journeys. Here is how we redefine the art of travel.</p>
+            </div>
+
+            <div class="grid-4" id="h2-why-grid">
+                <!-- Card 1 -->
+                <div class="h2-why-card animate-on-scroll delay-1">
+                    <div class="h2-why-icon-wrapper">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Heritage & Luxury</h3>
+                    <p>Access to hand-selected 5-star properties, royal heritage estates, and boutique eco-lodges.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="h2-why-card animate-on-scroll delay-2">
+                    <div class="h2-why-icon-wrapper">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Expert Local Guides</h3>
+                    <p>Explore with licensed historians and local storytellers who unlock the real secrets of India.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="h2-why-card animate-on-scroll delay-3">
+                    <div class="h2-why-icon-wrapper">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Concierge Care 24/7</h3>
+                    <p>Your dedicated travel concierge handles every flight update, custom request, and booking live.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="h2-why-card animate-on-scroll delay-4">
+                    <div class="h2-why-icon-wrapper">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3>Private Elite Fleet</h3>
+                    <p>Travel in style and safety with private executive vehicles and professional, verified chauffeurs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
          EXPERIENCE SECTION
     ============================= -->
-    <section class="section bg-alt" id="h2-experience" aria-label="Travel experience">
+    <section class="section" id="h2-experience" aria-label="Travel experience">
         <div class="container">
             <div style="position:relative;border-radius:var(--radius-xl);overflow:hidden;min-height:480px;display:flex;align-items:center;" class="experience-section animate-on-scroll">
                 <div class="experience-bg">
@@ -514,7 +790,7 @@
                         <h2 style="color:#fff;margin-bottom:10px;">Get Your Free Custom Itinerary</h2>
                         <p style="color:rgba(255,255,255,0.78);">Fill out the form below and our travel experts will design a personalized itinerary just for you — within 24 hours.</p>
                     </div>
-                    <form id="h2-enquiry-form" onsubmit="submitH2Enquiry(event)" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                    <form id="h2-enquiry-form" class="h2-enquiry-form" onsubmit="submitH2Enquiry(event)">
                         <div class="form-group" style="margin-bottom:0;">
                             <label class="form-label" for="h2-name" style="color:rgba(255,255,255,0.85);">Full Name</label>
                             <input type="text" id="h2-name" class="form-input" placeholder="Your full name" required>

@@ -16,13 +16,14 @@
     const ADDRESS = '12 Travel House, MG Road, Bangalore - 560001';
 
     const NAV_LINKS = [
-        { label: 'Home',     href: 'index.html' },
-        { label: 'Home 2',   href: 'home2.html' },
-        { label: 'About',    href: 'about.html' },
-        { label: 'Packages', href: 'packages.html' },
-        { label: 'Services', href: 'services.html' },
-        { label: 'Pricing',  href: 'pricing.html' },
-        { label: 'Contact',  href: 'contact.html' },
+        { label: 'Home',         href: 'index.html' },
+        { label: 'Home 2',       href: 'home2.html' },
+        { label: 'Destinations', href: 'destinations.html' },
+        { label: 'About',        href: 'about.html' },
+        { label: 'Packages',     href: 'packages.html' },
+        { label: 'Services',     href: 'services.html' },
+        { label: 'Pricing',      href: 'pricing.html' },
+        { label: 'Contact',      href: 'contact.html' },
     ];
 
     const SOCIAL_LINKS = [
@@ -153,6 +154,7 @@
                         <nav class="footer-links" aria-label="Quick links">
                             <a href="index.html">Home</a>
                             <a href="home2.html">Home 2 — Premium</a>
+                            <a href="destinations.html">Destinations</a>
                             <a href="services.html">Services</a>
                             <a href="pricing.html">Pricing</a>
                             <a href="about.html">About Us</a>

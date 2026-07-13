@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore India's finest destinations with WanderIndia. Browse tour packages grouped by state and city, including Kerala, Rajasthan, Goa, Himachal, Uttarakhand, and Kashmir. Find travel tips and highlights.">
+    <title>Destinations | WanderIndia — Explore India Your Way</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Ccircle cx='50' cy='50' r='44' stroke='%230F7A5A' stroke-width='3' fill='none'/%3E%3Cpath d='M50 22 C42 22 36 28 36 36 C36 46 50 62 50 62 C50 62 64 46 64 36 C64 28 58 22 50 22Z' fill='%23D4A017'/%3E%3Ccircle cx='50' cy='36' r='6' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Destinations Page Custom Premium Styles */
+        .dest-nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .dest-tab-btn {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            padding: 12px 28px;
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .dest-tab-btn i {
+            font-size: 1.1rem;
+            color: var(--primary-light);
+            transition: var(--transition);
+        }
+        .dest-tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .dest-tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-color: transparent;
+            color: #fff;
+            box-shadow: var(--shadow-primary);
+        }
+        .dest-tab-btn.active i {
+            color: var(--secondary-light);
+        }
+
+        /* Highlights Section Card Styles */
+        .dest-highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 56px;
+        }
+        .dest-highlight-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .dest-highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            opacity: 0.7;
+        }
+        .dest-highlight-card.style-2::before {
+            background: var(--secondary);
+        }
+        .dest-highlight-card.style-3::before {
+            background: #6B46C1;
+        }
+        .dest-highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .dest-highlight-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-md);
+            background: var(--primary-glow);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        .dest-highlight-card.style-2 .dest-highlight-icon {
+            background: var(--secondary-glow);
+            color: var(--secondary-dark);
+        }
+        .dest-highlight-card.style-3 .dest-highlight-icon {
+            background: rgba(107, 70, 193, 0.1);
+            color: #6B46C1;
+        }
+        .dest-highlight-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        .dest-highlight-card p, .dest-highlight-card ul {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .dest-highlight-card ul {
+            padding-left: 18px;
+            list-style-type: disc;
+        }
+        .dest-highlight-card ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Gallery Grid Styles */
+        .dest-gallery {
+            margin-top: 56px;
+        }
+        .dest-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .dest-gallery-item {
+            height: 280px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+        .dest-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dest-gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .dest-gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,31,22,0.8) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .dest-gallery-item:hover .dest-gallery-overlay {
+            opacity: 1;
+        }
+        .dest-gallery-overlay span {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .dest-content-section {
+            display: none;
+        }
+        .dest-content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .dest-highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dest-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .dest-highlights-grid {
+                grid-template-columns: 1fr;
+            }
+            .dest-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .dest-gallery-item {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="page-content">
+
+    <!-- Banner -->
+    <div class="page-banner">
+        <img src="assets/destinations_hero.png" alt="Panoramic scenic overview of Indian tour destinations - WanderIndia">
+        <div class="page-banner-overlay"></div>
+        <div class="page-banner-content">
+            <h1>Explore Destinations</h1>
+            <p style="color:rgba(255,255,255,0.85);margin-bottom:10px;">Handcrafted tour itineraries grouped by state and city</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                <span>Destinations</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <section class="section" style="padding-bottom:48px;" id="destinations-selector-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><span class="dot"></span> Pick Your Paradise</div>
+                <h2 class="section-title">Where Do You Want To <span class="gradient-text">Go Next?</span></h2>
+                <p class="section-desc">Select a region below to discover custom tour listings, travel advice, top landmarks, and local highlights.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="dest-nav-tabs animate-on-scroll" id="dest-tabs-container">
+                <button class="dest-tab-btn active" data-dest="kerala" id="tab-kerala">
+                    <i class="fas fa-water"></i> Kerala
+                </button>
+                <button class="dest-tab-btn" data-dest="rajasthan" id="tab-rajasthan">
+                    <i class="fas fa-gopuram"></i> Rajasthan
+                </button>
+                <button class="dest-tab-btn" data-dest="goa" id="tab-goa">
+                    <i class="fas fa-umbrella-beach"></i> Goa
+                </button>
+                <button class="dest-tab-btn" data-dest="himachal" id="tab-himachal">
+                    <i class="fas fa-mountain"></i> Himachal Pradesh
+                </button>
+                <button class="dest-tab-btn" data-dest="spiritual" id="tab-spiritual">
+                    <i class="fas fa-om"></i> Spiritual India
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Destination Content -->
+    <section class="section bg-alt" style="padding-top:64px;" id="destinations-content-section" aria-label="Destination details">
+        <div class="container">
+            
+            <!-- ============================
+                 KERALA SECTION
+            ============================= -->
+            <div class="dest-content-section active" id="dest-sec-kerala">
+                
+                <!-- Highlights Row -->
+                <div class="dest-highlights-grid">
+                    <div class="dest-highlight-card">
+                        <div class="dest-highlight-icon"><i class="far fa-calendar-alt"></i></div>
+                        <h3>Best Time To Visit</h3>
+                        <p><strong>September to March</strong> is the ideal window. The post-monsoon period offers lush green valleys, pleasant temperatures, and perfect cruising conditions on the backwaters.</p>
+                    </div>
+                    <div class="dest-highlight-card style-2">
+                        <div class="dest-highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Top Places To See</h3>
+                        <p>Explore the tranquil backwaters of Alleppey, the lush tea plantations of Munnar, historic Fort Kochi with Chinese fishing nets, and the misty valleys and waterfalls of Wayanad.</p>
+                    </div>
+                    <div class="dest-highlight-card style-3">
+                        <div class="dest-highlight-icon"><i class="far fa-lightbulb"></i></div>
+                        <h3>Pro Travel Tips</h3>
+                        <p>Book private houseboat cruises in advance for better rates. Try the authentic Kerala Sadya served on banana leaves. Stay in eco-resorts inside forest areas for a nature experience.</p>
+                    </div>
+                </div>
+
+                <!-- Tours Row -->
+                <h3 class="section-title text-center" style="margin-bottom:32px;">Handcrafted <span class="gradient-text">Kerala Packages</span></h3>
+                <div class="grid-3" style="gap:24px; margin-bottom: 64px;">
+                    <!-- Card 1 -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/pkg_kerala_backwaters.jpg" alt="Kerala backwaters boat tour composition">
+                            <div class="pkg-card-badge">Bestseller</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Kerala Backwaters Tour</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 6 Days / 5 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Kerala</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">Houseboat</span>
+                                <span class="pkg-include-tag">Tour Guide</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹22,000 <span>/ person</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="kb-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/pkg_kerala_honeymoon.jpg" alt="Romantic Munnar and Alleppey honeymoon">
+                            <div class="pkg-card-badge" style="background:var(--secondary);">Honeymoon</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Kerala Romance Escape</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 7 Days / 6 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Kerala</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">Luxury Resort</span>
+                                <span class="pkg-include-tag">Spa & Wellness</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹45,000 <span>/ couple</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="kr-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Spot / Custom Card -->
+                    <div class="pkg-card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:32px; background:var(--surface); border:2px dashed var(--primary-light);">
+                        <i class="fas fa-map-marked-alt" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                        <h3 class="pkg-card-title" style="margin-bottom:12px;">Custom Kerala Trip</h3>
+                        <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:24px;">Want to combine treehouse stays in Athirappilly with wildlife safaris in Thekkady? Let us customize your dream Kerala trip.</p>
+                        <a href="contact.html" class="btn btn-accent btn-shine" id="kc-custom-btn"><i class="fas fa-sliders-h"></i> Customize Trip</a>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="dest-gallery">
+                    <h3 class="section-title text-center" style="margin-bottom:32px;">Kerala <span class="gradient-text">Gallery</span></h3>
+                    <div class="dest-gallery-grid">
+                        <div class="dest-gallery-item">
+                            <img src="assets/kerala_tea_gardens.png" alt="Lush rolling tea gardens in Munnar, Kerala">
+                            <div class="dest-gallery-overlay"><span>Munnar Tea Gardens</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/h2_dest_kerala_new.png" alt="Tranquil backwaters houseboat cruise">
+                            <div class="dest-gallery-overlay"><span>Alleppey Houseboat</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/kerala_canals.png" alt="Local canoe rowing through narrow canals">
+                            <div class="dest-gallery-overlay"><span>Narrow Canals</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/gallery_south.png" alt="Beautiful South India landscape and temples">
+                            <div class="dest-gallery-overlay"><span>Tropical Greenery</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ============================
+                 RAJASTHAN SECTION
+            ============================= -->
+            <div class="dest-content-section" id="dest-sec-rajasthan">
+                
+                <!-- Highlights Row -->
+                <div class="dest-highlights-grid">
+                    <div class="dest-highlight-card">
+                        <div class="dest-highlight-icon"><i class="far fa-calendar-alt"></i></div>
+                        <h3>Best Time To Visit</h3>
+                        <p><strong>October to March</strong>. Winters are beautiful in Rajasthan with cool nights and warm, sunny days. Ideal for camel safaris, desert camping, and exploring massive forts without the heat.</p>
+                    </div>
+                    <div class="dest-highlight-card style-2">
+                        <div class="dest-highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Top Places To See</h3>
+                        <p>Visit the magnificent Hawa Mahal and Amer Fort in Jaipur, the romantic Lake Palace in Udaipur, the golden sand dunes of Jaisalmer, and the towering Mehrangarh Fort in Jodhpur.</p>
+                    </div>
+                    <div class="dest-highlight-card style-3">
+                        <div class="dest-highlight-icon"><i class="far fa-lightbulb"></i></div>
+                        <h3>Pro Travel Tips</h3>
+                        <p>Hire government-approved guides at forts to hear the fascinating royal histories. Jaisalmer desert camps are a must-try for folk dances. Carry for temperature drops at night.</p>
+                    </div>
+                </div>
+
+                <!-- Tours Row -->
+                <h3 class="section-title text-center" style="margin-bottom:32px;">Handcrafted <span class="gradient-text">Rajasthan Packages</span></h3>
+                <div class="grid-3" style="gap:24px; margin-bottom: 64px;">
+                    <!-- Card 1 -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/pkg_rajasthan.jpg" alt="Majestic palace courtyard in Rajasthan">
+                            <div class="pkg-card-badge">Popular</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Royal Rajasthan Heritage</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 5 Days / 4 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Rajasthan</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">Heritage Hotels</span>
+                                <span class="pkg-include-tag">Daily Breakfast</span>
+                                <span class="pkg-include-tag">Fort Entry Passes</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹18,999 <span>/ person</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="rr-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 (Premium Udaipur) -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/about_premium_resort.png" alt="Luxury lakeside pool in Udaipur">
+                            <div class="pkg-card-badge" style="background:var(--secondary);">Signature</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Udaipur Royal Luxury</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 4 Days / 3 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Udaipur</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">5★ Lake Resort</span>
+                                <span class="pkg-include-tag">Boat Cruise</span>
+                                <span class="pkg-include-tag">Private Transfers</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹32,500 <span>/ person</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="ru-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Custom Card -->
+                    <div class="pkg-card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:32px; background:var(--surface); border:2px dashed var(--primary-light);">
+                        <i class="fas fa-crown" style="font-size:3rem; color:var(--secondary); margin-bottom:20px;"></i>
+                        <h3 class="pkg-card-title" style="margin-bottom:12px;">Bespoke Royalty</h3>
+                        <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:24px;">Want to sleep in the authentic palace suites of Jaipur or ride hot air balloons? Speak to our local travel designers.</p>
+                        <a href="contact.html" class="btn btn-accent btn-shine" id="rc-custom-btn"><i class="fas fa-sliders-h"></i> Customize Trip</a>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="dest-gallery">
+                    <h3 class="section-title text-center" style="margin-bottom:32px;">Rajasthan <span class="gradient-text">Gallery</span></h3>
+                    <div class="dest-gallery-grid">
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_rajasthan.png" alt="Mehrangarh Fort towering above Jodhpur">
+                            <div class="dest-gallery-overlay"><span>Jodhpur Blue City</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/h2_dest_rajasthan.png" alt="Beautiful historic palace balcony in Udaipur">
+                            <div class="dest-gallery-overlay"><span>Palace Courtyards</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_rajasthan_dunes.png" alt="Majestic sand dunes in Jaisalmer, Rajasthan">
+                            <div class="dest-gallery-overlay"><span>Jaisalmer Dunes</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_rajasthan_udaipur.png" alt="Udaipur Lake Palace views at sunset">
+                            <div class="dest-gallery-overlay"><span>Udaipur Sunset</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ============================
+                 GOA SECTION
+            ============================= -->
+            <div class="dest-content-section" id="dest-sec-goa">
+                
+                <!-- Highlights Row -->
+                <div class="dest-highlights-grid">
+                    <div class="dest-highlight-card">
+                        <div class="dest-highlight-icon"><i class="far fa-calendar-alt"></i></div>
+                        <h3>Best Time To Visit</h3>
+                        <p><strong>November to February</strong> is prime beach weather. The climate is breezy, water sports are fully operational, and shacks are vibrant. October and March are great for quieter vibes.</p>
+                    </div>
+                    <div class="dest-highlight-card style-2">
+                        <div class="dest-highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Top Places To See</h3>
+                        <p>Relax at the peaceful Agonda and Palolem beaches in South Goa, explore the active cliffs of Vagator in North Goa, walk through historic Fontainhas, and witness the roaring Falls.</p>
+                    </div>
+                    <div class="dest-highlight-card style-3">
+                        <div class="dest-highlight-icon"><i class="far fa-lightbulb"></i></div>
+                        <h3>Pro Travel Tips</h3>
+                        <p>South Goa is perfect for luxury wellness and peaceful beaches. North Goa is the capital of music festivals and night markets. Rent a scooter for cheap, scenic coastal driving.</p>
+                    </div>
+                </div>
+
+                <!-- Tours Row -->
+                <h3 class="section-title text-center" style="margin-bottom:32px;">Handcrafted <span class="gradient-text">Goa Packages</span></h3>
+                <div class="grid-3" style="gap:24px; margin-bottom: 64px;">
+                    <!-- Card 1 -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/pkg_goa_luxury.jpg" alt="Luxury Goa beach sunset resort">
+                            <div class="pkg-card-badge" style="background:var(--secondary);">Premium</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Goa Luxury Getaway</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 6 Days / 5 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Goa</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">5★ Beach Resort</span>
+                                <span class="pkg-include-tag">All Meals</span>
+                                <span class="pkg-include-tag">Private Yacht Rental</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹55,000 <span>/ couple</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="gl-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/pkg_goa_party.jpg" alt="Beach party vacation and dynamic coastal scenes in Goa">
+                            <div class="pkg-card-badge">Beach Life</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Goa Sun & Surf</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 4 Days / 3 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Goa</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">Beachside Hotel</span>
+                                <span class="pkg-include-tag">Scuba & Jet Ski</span>
+                                <span class="pkg-include-tag">Airport Pick</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹12,000 <span>/ person</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="gs-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Custom Card -->
+                    <div class="pkg-card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:32px; background:var(--surface); border:2px dashed var(--primary-light);">
+                        <i class="fas fa-umbrella-beach" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                        <h3 class="pkg-card-title" style="margin-bottom:12px;">Custom Goa Getaway</h3>
+                        <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:24px;">Want to book private villas in Candolim or private cruises along Mandovi River? We can make it happen.</p>
+                        <a href="contact.html" class="btn btn-accent btn-shine" id="gc-custom-btn"><i class="fas fa-sliders-h"></i> Customize Trip</a>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="dest-gallery">
+                    <h3 class="section-title text-center" style="margin-bottom:32px;">Goa <span class="gradient-text">Gallery</span></h3>
+                    <div class="dest-gallery-grid">
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_goa.png" alt="Breathtaking Goa ocean view">
+                            <div class="dest-gallery-overlay"><span>Calangute Beach</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/h2_dest_goa.png" alt="Sunny sandy shore in Goa">
+                            <div class="dest-gallery-overlay"><span>Sandy Shores</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_goa_fontainhas.png" alt="Colonial colorful houses in Fontainhas Panaji, Goa">
+                            <div class="dest-gallery-overlay"><span>Fontainhas Quarter</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_goa_sunset.png" alt="Sunset at Vagator Beach, Goa">
+                            <div class="dest-gallery-overlay"><span>Vagator Sunset</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ============================
+                 HIMACHAL SECTION
+            ============================= -->
+            <div class="dest-content-section" id="dest-sec-himachal">
+                
+                <!-- Highlights Row -->
+                <div class="dest-highlights-grid">
+                    <div class="dest-highlight-card">
+                        <div class="dest-highlight-icon"><i class="far fa-calendar-alt"></i></div>
+                        <h3>Best Time To Visit</h3>
+                        <p><strong>March to June</strong> for pleasant valleys, trekking, and escaping the summer heat. <strong>December to February</strong> for fresh snow, skiing in Solang, and winter wonderland sights.</p>
+                    </div>
+                    <div class="dest-highlight-card style-2">
+                        <div class="dest-highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Top Places To See</h3>
+                        <p>Explore the Mall Road and Jakhoo Temple in Shimla, experience adventure at Solang Valley and Rohtang Pass in Manali, visit monasteries and witness the cold deserts of Spiti.</p>
+                    </div>
+                    <div class="dest-highlight-card style-3">
+                        <div class="dest-highlight-icon"><i class="far fa-lightbulb"></i></div>
+                        <h3>Pro Travel Tips</h3>
+                        <p>Pack dynamic layers; mountain weather can fluctuate fast. Apply for Rohtang passes weeks in advance as entries are restricted. Drink mineral water to ease altitude acclimatization.</p>
+                    </div>
+                </div>
+
+                <!-- Tours Row -->
+                <h3 class="section-title text-center" style="margin-bottom:32px;">Handcrafted <span class="gradient-text">Himachal Packages</span></h3>
+                <div class="grid-3" style="gap:24px; margin-bottom: 64px;">
+                    <!-- Card 1 -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/pkg_manali.jpg" alt="High snow covered passes in Manali">
+                            <div class="pkg-card-badge" style="background:#6B46C1;">Adventure</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Manali Mountain Trek</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 7 Days / 6 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Himachal</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">High-End Tent</span>
+                                <span class="pkg-include-tag">Guided Trekking</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹28,500 <span>/ person</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="hm-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/dest_himachal.png" alt="Stunning pine valleys in Himachal Pradesh">
+                            <div class="pkg-card-badge">Family Fun</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Himachal Wonders</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 6 Days / 5 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Himachal</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">Mountain Resort</span>
+                                <span class="pkg-include-tag">Breakfast & Dinner</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹24,500 <span>/ person</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="hw-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Custom Card -->
+                    <div class="pkg-card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:32px; background:var(--surface); border:2px dashed var(--primary-light);">
+                        <i class="fas fa-mountain" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                        <h3 class="pkg-card-title" style="margin-bottom:12px;">Custom Alpine Trip</h3>
+                        <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:24px;">Want to head out on the Kinnaur road loop, or stay in remote wooden cottages in Jibhi? Share your dreams with us.</p>
+                        <a href="contact.html" class="btn btn-accent btn-shine" id="hc-custom-btn"><i class="fas fa-sliders-h"></i> Customize Trip</a>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="dest-gallery">
+                    <h3 class="section-title text-center" style="margin-bottom:32px;">Himachal <span class="gradient-text">Gallery</span></h3>
+                    <div class="dest-gallery-grid">
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_himachal_monastery.png" alt="Tibetan Buddhist monastery in McLeod Ganj Dharamshala, Himachal">
+                            <div class="dest-gallery-overlay"><span>Dharamshala Monasteries</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/h2_dest_himachal.png" alt="Lush green pine slopes in Manali">
+                            <div class="dest-gallery-overlay"><span>Pine Valleys</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_manali.png" alt="Winding roads in Rohtang Pass">
+                            <div class="dest-gallery-overlay"><span>Rohtang Pass</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/pkg_himachal.jpg" alt="Beautiful sunset overview over mountain ridges">
+                            <div class="dest-gallery-overlay"><span>Solang Slopes</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ============================
+                 SPIRITUAL / CENTRAL INDIA SECTION
+            ============================= -->
+            <div class="dest-content-section" id="dest-sec-spiritual">
+                
+                <!-- Highlights Row -->
+                <div class="dest-highlights-grid">
+                    <div class="dest-highlight-card">
+                        <div class="dest-highlight-icon"><i class="far fa-calendar-alt"></i></div>
+                        <h3>Best Time To Visit</h3>
+                        <p><strong>October to March</strong> is the absolute best time. The temperatures are mild, making it very comfortable to walk along ghats, witness evening prayer rituals, and raft on the Ganges.</p>
+                    </div>
+                    <div class="dest-highlight-card style-2">
+                        <div class="dest-highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Top Places To See</h3>
+                        <p>Witness the sacred Dashashwamedh Ghat in Varanasi, visit the iconic Lakshman Jhula and Beatles Ashram in Rishikesh, attend the Ganga Aarti in Haridwar.</p>
+                    </div>
+                    <div class="dest-highlight-card style-3">
+                        <div class="dest-highlight-icon"><i class="far fa-lightbulb"></i></div>
+                        <h3>Pro Travel Tips</h3>
+                        <p>Dress conservatively near religious sites. Book early morning boat rides in Varanasi to catch the serene sunrise rituals. Rishikesh is perfect for combining yoga with rafting.</p>
+                    </div>
+                </div>
+
+                <!-- Tours Row -->
+                <h3 class="section-title text-center" style="margin-bottom:32px;">Handcrafted <span class="gradient-text">Spiritual & Kashmir Packages</span></h3>
+                <div class="grid-3" style="gap:24px; margin-bottom: 64px;">
+                    <!-- Card 1 (Varanasi) -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/pkg_varanasi.png" alt="Morning prayer chants on Varanasi ghats">
+                            <div class="pkg-card-badge">Cultural</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Varanasi Spiritual Journey</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 5 Days / 4 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Uttar Pradesh</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">Ghat Hotel</span>
+                                <span class="pkg-include-tag">Morning Boat</span>
+                                <span class="pkg-include-tag">Guided Sarnath</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹14,500 <span>/ person</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="sv-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 (Rishikesh) -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/pkg_rishikesh.jpg" alt="Ganges river rafting in Rishikesh valleys">
+                            <div class="pkg-card-badge" style="background:#6B46C1;">Adventure</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Rishikesh Adrenaline</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 4 Days / 3 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Uttarakhand</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">Luxury Camp</span>
+                                <span class="pkg-include-tag">Rafting Session</span>
+                                <span class="pkg-include-tag">Daily Yoga</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹12,999 <span>/ person</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="sr-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 (Newly Generated Kashmir Shikara) -->
+                    <div class="pkg-card">
+                        <div class="pkg-card-img">
+                            <img src="assets/dest_kashmir_shikara.png" alt="Luxury wooden shikara on Dal Lake in Kashmir under morning sun">
+                            <div class="pkg-card-badge" style="background:var(--secondary);">Exclusive</div>
+                            <div class="pkg-card-fav"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="pkg-card-body">
+                            <h3 class="pkg-card-title">Heavenly Kashmir Escape</h3>
+                            <div class="pkg-card-meta">
+                                <span><i class="fas fa-clock"></i> 6 Days / 5 Nights</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Kashmir</span>
+                            </div>
+                            <div class="pkg-card-includes">
+                                <span class="pkg-include-tag">Luxury Houseboat</span>
+                                <span class="pkg-include-tag">Shikara Cruise</span>
+                                <span class="pkg-include-tag">Meals</span>
+                            </div>
+                            <div class="pkg-card-footer">
+                                <div class="pkg-price">
+                                    <span class="pkg-price-label">From</span>
+                                    <span class="pkg-price-value">₹29,999 <span>/ person</span></span>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm btn-shine" id="sk-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="dest-gallery">
+                    <h3 class="section-title text-center" style="margin-bottom:32px;">Spiritual & Scenic <span class="gradient-text">Gallery</span></h3>
+                    <div class="dest-gallery-grid">
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_varanasi.png" alt="Aarti prayer ceremony along the Varanasi ghats at night">
+                            <div class="dest-gallery-overlay"><span>Varanasi Aarti</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/h2_dest_varanasi_new.png" alt="Ancient temples and historic ghat buildings in Varanasi">
+                            <div class="dest-gallery-overlay"><span>Ancient Ghats</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/dest_kashmir_shikara.png" alt="Scenic wooden houseboats and shikaras floating in Srinagar's Dal Lake">
+                            <div class="dest-gallery-overlay"><span>Dal Lake, Kashmir</span></div>
+                        </div>
+                        <div class="dest-gallery-item">
+                            <img src="assets/gallery_northeast.png" alt="Lush mountains and waterfalls of Northeast India">
+                            <div class="dest-gallery-overlay"><span>Mountain Rivers</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Custom Booking CTA -->
+    <section class="section-sm" id="destinations-cta">
+        <div class="container">
+            <div class="cta-strip animate-on-scroll">
+                <h2>Dreaming of a Different Route?</h2>
+                <p>Tell us your preferences and we'll craft a bespoke, personalized itinerary across any state or city in India.</p>
+                <div class="cta-strip-actions">
+                    <a href="contact.html" class="btn btn-accent btn-lg btn-shine" id="dest-custom-btn"><i class="fas fa-map-marked-alt"></i> Plan Custom Route</a>
+                    <a href="tel:+919876543210" class="btn btn-ghost btn-lg" id="dest-call-btn"><i class="fas fa-phone"></i> Call Destination Experts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="components.js"></script>
+<script src="script.js"></script>
+<script>
+    // Tab switching script for Destinations Page
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('.dest-tab-btn');
+        const sections = document.querySelectorAll('.dest-content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const target = this.dataset.dest;
+
+                // Toggle active tab button
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Toggle active content section
+                sections.forEach(section => {
+                    if (section.id === 'dest-sec-' + target) {
+                        section.classList.add('active');
+                        // Trigger scroll animations reset for elements inside
+                        const animatedElements = section.querySelectorAll('.animate-on-scroll');
+                        animatedElements.forEach(el => el.classList.add('visible'));
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>
